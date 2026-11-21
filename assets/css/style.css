@@ -735,3 +735,6 @@ input::placeholder, textarea::placeholder { font-style: italic; }
 #about .section p + .privacy-h { margin-top: 3.5rem; }
 #about .labs { margin-top: 0.75rem; }
 #about .labs li { padding: 1.3rem 0; } #about .lab-home { margin-top: 0.4rem; }
+#about .labs + .privacy-h { margin-top: 3.5rem; }
+.works a.lab-name { text-decoration: underline; text-decoration-color: #b5b5b5; text-underline-offset: 3px; }
+.works a.lab-name:hover { text-decoration-color: var(--text); }
