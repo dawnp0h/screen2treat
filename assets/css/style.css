@@ -714,3 +714,10 @@ sup.ref a:hover { color: var(--text); }
 @media (prefers-reduced-motion: reduce) {
   .header-inner .logo-wrap .site-nav.site-nav { transform: none !important; }
 }
+
+/* Collaborating labs */
+.labs { list-style: none; margin: 0.5rem 0 0; padding: 0; }
+.labs li { padding: 0.9rem 0; border-top: 1px solid var(--rule); }
+.labs li:last-child { border-bottom: 1px solid var(--rule); }
+.lab-name { display: block; font-family: var(--serif); font-size: 1.05rem; line-height: 1.4; color: var(--text); }
+.lab-home { display: block; margin-top: 0.2rem; font-family: var(--sans); font-size: 0.82rem; color: var(--muted); }
