@@ -728,3 +728,4 @@ input::placeholder, textarea::placeholder { font-style: italic; }
 .form select:invalid { font-style: italic; }
 .form select option { font-style: normal; }
 .file-name { font-style: italic; } .file-name.chosen { font-style: normal; }
+#about .section p + h2 { margin-top: 3rem; }
