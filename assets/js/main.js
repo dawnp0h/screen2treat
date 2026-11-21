@@ -98,7 +98,7 @@
   }
 
   // ---------- Smooth, eased scrolling to sections ----------
-  var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce) and (max-width: 0px)").matches;
   function easeInOutCubic(x) { return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2; }
   function headerOffset() {
     var h = document.querySelector(".site-header");
@@ -141,7 +141,7 @@
   (function () {
     var stats = document.querySelectorAll("#evidence .stat:not(.flip)");
     if (!stats.length || !("IntersectionObserver" in window)) return;
-    var noMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var noMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce) and (max-width: 0px)").matches;
     if (noMotion) return;
     var NUM = /\d[\d,]*(?:\.\d+)?/g;
 
@@ -199,7 +199,7 @@
     if (!row) return;
     var cards = Array.prototype.slice.call(row.querySelectorAll(".stat.flip"));
     if (!cards.length) return;
-    var noMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var noMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce) and (max-width: 0px)").matches;
     var STEP = 300;
 
     function half(cls, ch) {
@@ -288,7 +288,7 @@
     var rows = document.querySelectorAll(".people-row");
     if (!rows.length) return;
     if (!("IntersectionObserver" in window)) return;
-    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce) and (max-width: 0px)").matches) return;
     rows.forEach(function (row) {
       var people = Array.prototype.slice.call(row.querySelectorAll(".human"));
       var no = people.filter(function (h) { return h.classList.contains("no"); });
@@ -387,7 +387,7 @@
   (function () {
     var bars = document.querySelectorAll(".hbar-fill, .thr-fill, .target-bar span");
     if (!bars.length || !("IntersectionObserver" in window)) return;
-    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce) and (max-width: 0px)").matches) return;
 
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
@@ -416,7 +416,7 @@
   (function () {
     var grid = document.querySelector(".waffle-grid");
     if (!grid || !("IntersectionObserver" in window)) return;
-    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce) and (max-width: 0px)").matches) return;
     var on = Array.prototype.slice.call(grid.querySelectorAll(".on"));
     var timers = [], running = false;
     grid.classList.add("animated");
@@ -456,7 +456,7 @@
   (function () {
     var maps = document.querySelectorAll(".smap");
     if (!maps.length) return;
-    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce) and (max-width: 0px)").matches;
     var setup = Array.prototype.map.call(maps, function (m) {
       var dots = Array.prototype.slice.call(m.querySelectorAll(".m-dot"));
       var rate = parseFloat(m.getAttribute("data-rate"));
@@ -652,7 +652,7 @@
     if (d && !d.open) d.open = true;
     var h = document.querySelector(".site-header");
     var y = it.el.getBoundingClientRect().top + window.pageYOffset - (h ? h.getBoundingClientRect().height : 0) - 24;
-    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce) and (max-width: 0px)").matches;
     window.scrollTo({ top: y, behavior: reduce ? "auto" : "smooth" });
     it.el.classList.remove("search-flash"); void it.el.offsetWidth; it.el.classList.add("search-flash");
     input.value = ""; render(""); input.blur();

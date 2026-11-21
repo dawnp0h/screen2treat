@@ -263,7 +263,7 @@ sup.ref a:hover { color: var(--text); }
 /* Brief highlight when a link lands on a section heading */
 @keyframes arrive { from { opacity: 0.35; transform: translateY(6px); } to { opacity: 1; transform: none; } }
 .page-block.arrived .page-header h1, h2.arrived, section.arrived h2 { animation: arrive 0.6s ease-out; }
-@media (prefers-reduced-motion: reduce) { .arrived, .arrived * { animation: none !important; } }
+@media (prefers-reduced-motion: reduce) and (max-width: 0px) { .arrived, .arrived * { animation: none !important; } }
 
 /* 90 70 90 targets, side by side */
 .target-row { list-style: none; padding: 0; margin: 2rem 0 3rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
@@ -356,7 +356,7 @@ sup.ref a:hover { color: var(--text); }
 .statement span { opacity: 0; animation: lineIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
 .statement span:nth-child(1) { animation-delay: 0.3s; }
 .statement span:nth-child(2) { animation-delay: 0.5s; }
-@media (prefers-reduced-motion: reduce) { .statement span { opacity: 1; animation: none; } }
+@media (prefers-reduced-motion: reduce) and (max-width: 0px) { .statement span { opacity: 1; animation: none; } }
 .icon-row.dot-grid { flex-wrap: wrap; max-width: 360px; gap: 5px; }
 .privacy-h { font-family: var(--sans); font-size: 0.72rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin: 2rem 0 0.5rem; }
 /* Site name, identical wherever it appears */
@@ -528,7 +528,7 @@ sup.ref a:hover { color: var(--text); }
 .ground-body { padding-top: 1rem; }
 .ground[open] .ground-body { animation: groundIn 0.3s ease-out; }
 @keyframes groundIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
-@media (prefers-reduced-motion: reduce) { .ground[open] .ground-body { animation: none; } }
+@media (prefers-reduced-motion: reduce) and (max-width: 0px) { .ground[open] .ground-body { animation: none; } }
 /* Objections open like the grounds */
 .objection summary h3 { margin: 0; }
 .objection .ground-toggle { top: 0; }
@@ -538,7 +538,7 @@ sup.ref a:hover { color: var(--text); }
 .ground-toggle::after { display: none; }
 .ground-toggle::before { width: 0.42rem; height: 0.42rem; background: none; border-right: 1.5px solid var(--text); border-bottom: 1.5px solid var(--text); transform: translate(-50%, -70%) rotate(45deg); transition: transform 0.25s ease; }
 .ground[open] .ground-toggle::before { transform: translate(-50%, -30%) rotate(-135deg); }
-@media (prefers-reduced-motion: reduce) { .ground-toggle::before { transition: none; } }
+@media (prefers-reduced-motion: reduce) and (max-width: 0px) { .ground-toggle::before { transition: none; } }
 
 /* Logo inside the Find menu on phones */
 .nav-logo { display: none; }
@@ -664,7 +664,7 @@ sup.ref a:hover { color: var(--text); }
 .search-empty, .search-more { margin: 0; padding: 0.55rem 0.65rem; font-family: var(--sans); font-size: 0.8rem; color: var(--muted); }
 .search-flash { animation: searchFlash 1.8s ease; }
 @keyframes searchFlash { 0%, 40% { background: color-mix(in srgb, #b5b5b5 35%, transparent); } 100% { background: transparent; } }
-@media (prefers-reduced-motion: reduce) { .search-flash { animation: none; } }
+@media (prefers-reduced-motion: reduce) and (max-width: 0px) { .search-flash { animation: none; } }
 
 /* Section menu opens from the header logo; Find is search only */
 .logo-wrap { position: relative; display: flex; align-items: center; }
@@ -711,7 +711,7 @@ sup.ref a:hover { color: var(--text); }
     visibility: hidden; opacity: 0; pointer-events: none; transform: translateY(-6px);
   }
 }
-@media (prefers-reduced-motion: reduce) {
+@media (prefers-reduced-motion: reduce) and (max-width: 0px) {
   .header-inner .logo-wrap .site-nav.site-nav { transform: none !important; }
 }
 
