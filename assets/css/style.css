@@ -738,3 +738,8 @@ input::placeholder, textarea::placeholder { font-style: italic; }
 #about .labs + .privacy-h { margin-top: 3.5rem; }
 .works a.lab-name { text-decoration: underline; text-decoration-color: #b5b5b5; text-underline-offset: 3px; }
 .works a.lab-name:hover { text-decoration-color: var(--text); }
+
+/* Contact form preview text uses the Find font (Inter italic) */
+.form input::placeholder, .form textarea::placeholder { font-family: var(--sans); font-style: italic; }
+.form select:invalid { font-family: var(--sans); font-style: italic; }
+.form select option { font-family: var(--serif); font-style: normal; }
