@@ -25,8 +25,8 @@
       '<header class="site-header">' +
       '  <div class="container header-inner">' +
       '    <a class="logo" href="#home" aria-label="' + SITE_NAME + ', home">' + SITE_NAME + '<span class="logo-dots" aria-hidden="true"><i></i><i></i><i></i></span></a>' +
-      '    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Find</button>' +
-      '    <nav class="site-nav" id="site-nav" aria-label="Main"><ul>' + links + '</ul><a class="logo nav-logo" href="#home" aria-label="' + SITE_NAME + ', home">' + SITE_NAME + '<span class="logo-dots" aria-hidden="true"><i></i><i></i><i></i></span></a></nav>' +
+      '    <div class="nav-wrap"><button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Find</button>' +
+      '    <nav class="site-nav" id="site-nav" aria-label="Main"><ul>' + links + '</ul><a class="logo nav-logo" href="#home" aria-label="' + SITE_NAME + ', home">' + SITE_NAME + '<span class="logo-dots" aria-hidden="true"><i></i><i></i><i></i></span></a></nav></div>' +
       "  </div>" +
       "</header>";
   }
@@ -74,6 +74,8 @@
     a.addEventListener("click", function () {
       if (nav) nav.classList.remove("open");
       if (toggle) toggle.setAttribute("aria-expanded", "false");
+      var w = document.querySelector(".nav-wrap");
+      if (w) { w.classList.add("closed"); if (document.activeElement) document.activeElement.blur(); }
     });
   });
 
@@ -522,4 +524,23 @@
   function set() { h.classList.toggle("scrolled", window.scrollY > 8); }
   window.addEventListener("scroll", set, { passive: true });
   set();
+})();
+
+/* Find menu: let hover reopen it once the cursor leaves after a choice */
+(function () {
+  var w = document.querySelector(".nav-wrap");
+  if (!w) return;
+  w.addEventListener("mouseleave", function () { w.classList.remove("closed"); });
+  document.addEventListener("click", function (e) {
+    var nav = document.querySelector(".site-nav"), t = document.querySelector(".nav-toggle");
+    if (nav && nav.classList.contains("open") && !w.contains(e.target)) {
+      nav.classList.remove("open"); if (t) t.setAttribute("aria-expanded", "false");
+    }
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key !== "Escape") return;
+    var nav = document.querySelector(".site-nav"), t = document.querySelector(".nav-toggle");
+    if (nav) nav.classList.remove("open"); if (t) t.setAttribute("aria-expanded", "false");
+    w.classList.add("closed"); setTimeout(function(){ w.classList.remove("closed"); }, 0);
+  });
 })();
