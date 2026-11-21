@@ -679,3 +679,10 @@
   });
   wrap.addEventListener("mouseleave", function () { if (document.activeElement !== input) wrap.classList.remove("closed"); });
 })();
+
+/* Get involved buttons preselect the matching contact topic */
+document.addEventListener("click", function (e) {
+  var a = e.target.closest && e.target.closest("a[data-topic]");
+  var sel = document.getElementById("topic");
+  if (a && sel) sel.value = a.getAttribute("data-topic");
+});
