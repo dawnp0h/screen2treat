@@ -721,3 +721,10 @@ sup.ref a:hover { color: var(--text); }
 .labs li:last-child { border-bottom: 1px solid var(--rule); }
 .lab-name { display: block; font-family: var(--serif); font-size: 1.05rem; line-height: 1.4; color: var(--text); }
 .lab-home { display: block; margin-top: 0.2rem; font-family: var(--sans); font-size: 0.82rem; color: var(--muted); }
+
+/* Placeholder text in italics */
+@font-face { font-family: "Inter"; font-style: italic; font-weight: 400; font-display: swap; src: url("../fonts/inter-latin-400-italic.woff2") format("woff2"); }
+input::placeholder, textarea::placeholder { font-style: italic; }
+.form select:invalid { font-style: italic; }
+.form select option { font-style: normal; }
+.file-name { font-style: italic; } .file-name.chosen { font-style: normal; }
