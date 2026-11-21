@@ -6,8 +6,8 @@
 
   var NAV = [
     { href: "#the-case", label: "The case" },
-    { href: "#objections", label: "Objections" },
-    { href: "#evidence", label: "Evidence" },
+    { href: "#objections", label: "Common objections" },
+    { href: "#evidence", label: "Latest evidence" },
     { href: "#about", label: "About" },
     { href: "#get-involved", label: "Get involved" },
     { href: "#contact", label: "Contact" }
