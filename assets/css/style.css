@@ -684,3 +684,33 @@ sup.ref a:hover { color: var(--text); }
   .site-nav.open { display: block !important; }
 }
 .head-logo, .head-logo:hover, .head-logo:focus { color: var(--text); }
+
+/* Logo menu fades in slowly on hover (computers) */
+@media (min-width: 721px) {
+  .header-inner .logo-wrap .site-nav.site-nav {
+    display: block !important; visibility: hidden; opacity: 0; pointer-events: none;
+    transform: translateY(-6px);
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0s linear 0.25s;
+  }
+  .header-inner .logo-wrap:focus-within .site-nav.site-nav,
+  .header-inner .logo-wrap .site-nav.site-nav.open {
+    visibility: visible; opacity: 1; pointer-events: auto; transform: none;
+    transition: opacity 0.5s ease 0.1s, transform 0.5s ease 0.1s, visibility 0s linear 0s;
+  }
+  .header-inner .logo-wrap.closed .site-nav.site-nav {
+    visibility: hidden; opacity: 0; pointer-events: none; transform: translateY(-6px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s linear 0.2s;
+  }
+}
+@media (min-width: 721px) and (hover: hover) {
+  .header-inner .logo-wrap:hover .site-nav.site-nav {
+    visibility: visible; opacity: 1; pointer-events: auto; transform: none;
+    transition: opacity 0.5s ease 0.1s, transform 0.5s ease 0.1s, visibility 0s linear 0s;
+  }
+  .header-inner .logo-wrap.closed:hover .site-nav.site-nav {
+    visibility: hidden; opacity: 0; pointer-events: none; transform: translateY(-6px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .header-inner .logo-wrap .site-nav.site-nav { transform: none !important; }
+}
