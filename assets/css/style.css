@@ -734,3 +734,4 @@ input::placeholder, textarea::placeholder { font-style: italic; }
 #about .eyebrow::before { content: none; }
 #about .section p + .privacy-h { margin-top: 2rem; }
 #about .labs { margin-top: 0.75rem; }
+#about .labs li { padding: 1.3rem 0; } #about .lab-home { margin-top: 0.4rem; }
