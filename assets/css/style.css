@@ -743,3 +743,4 @@ input::placeholder, textarea::placeholder { font-style: italic; }
 .form input::placeholder, .form textarea::placeholder { font-family: var(--sans); font-style: italic; }
 .form select:invalid { font-family: var(--sans); font-style: italic; }
 .form select option { font-family: var(--serif); font-style: normal; }
+.form .file-name { font-family: var(--sans); } .form .file-name.chosen { font-family: var(--serif); }
