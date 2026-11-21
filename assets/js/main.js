@@ -24,9 +24,10 @@
     headerSlot.outerHTML =
       '<header class="site-header">' +
       '  <div class="container header-inner">' +
-      '    <a class="logo" href="#home" aria-label="' + SITE_NAME + ', home">' + SITE_NAME + '<span class="logo-dots" aria-hidden="true"><i></i><i></i><i></i></span></a>' +
+      '    <div class="logo-wrap"><a class="logo head-logo" href="#home" aria-label="' + SITE_NAME + ', home" aria-controls="site-nav" aria-expanded="false">' + SITE_NAME + '<span class="logo-dots" aria-hidden="true"><i></i><i></i><i></i></span></a>' +
+      '    <nav class="site-nav" id="site-nav" aria-label="Main"><ul>' + links + '</ul><a class="logo nav-logo" href="#home" aria-label="' + SITE_NAME + ', home">' + SITE_NAME + '<span class="logo-dots" aria-hidden="true"><i></i><i></i><i></i></span></a></nav></div>' +
       '    <div class="nav-wrap"><div class="search-box" role="search"><input class="site-search" id="site-search" type="search" placeholder="Find" aria-label="Find on this site" autocomplete="off" spellcheck="false" aria-controls="search-results" aria-expanded="false"></div>' +
-      '    <nav class="site-nav" id="site-nav" aria-label="Main"><ul>' + links + '</ul><a class="logo nav-logo" href="#home" aria-label="' + SITE_NAME + ', home">' + SITE_NAME + '<span class="logo-dots" aria-hidden="true"><i></i><i></i><i></i></span></a></nav><div class="search-results" id="search-results" role="listbox" aria-label="Search results"></div></div>' +
+      '    <div class="search-results" id="search-results" role="listbox" aria-label="Search results"></div></div>' +
       "  </div>" +
       "</header>";
   }
@@ -74,7 +75,7 @@
     a.addEventListener("click", function () {
       if (nav) nav.classList.remove("open");
       if (toggle) toggle.setAttribute("aria-expanded", "false");
-      var w = document.querySelector(".nav-wrap");
+      var w = document.querySelector(".logo-wrap");
       if (w) { w.classList.add("closed"); if (document.activeElement) document.activeElement.blur(); }
     });
   });
@@ -526,20 +527,34 @@
   set();
 })();
 
-/* Find menu: let hover reopen it once the cursor leaves after a choice */
+/* Section menu under the header logo: hover on computers, tap on touch screens */
 (function () {
-  var w = document.querySelector(".nav-wrap");
+  var w = document.querySelector(".logo-wrap");
+  var headLogo = w && w.querySelector(".head-logo");
+  var menu = w && w.querySelector(".site-nav");
+  if (headLogo && menu) {
+    var touch = window.matchMedia && window.matchMedia("(hover: none)");
+    document.addEventListener("click", function (e) {
+      if (!headLogo.contains(e.target) || !(touch && touch.matches)) return;
+      if (!menu.classList.contains("open")) {
+        e.preventDefault(); e.stopImmediatePropagation();
+        menu.classList.add("open"); headLogo.setAttribute("aria-expanded", "true");
+      } else {
+        menu.classList.remove("open"); headLogo.setAttribute("aria-expanded", "false");
+      }
+    }, true);
+  }
   if (!w) return;
   w.addEventListener("mouseleave", function () { w.classList.remove("closed"); });
   document.addEventListener("click", function (e) {
-    var nav = document.querySelector(".site-nav"), t = document.querySelector(".nav-toggle");
+    var nav = document.querySelector(".site-nav"), t = document.querySelector(".head-logo");
     if (nav && nav.classList.contains("open") && !w.contains(e.target)) {
       nav.classList.remove("open"); if (t) t.setAttribute("aria-expanded", "false");
     }
   });
   document.addEventListener("keydown", function (e) {
     if (e.key !== "Escape") return;
-    var nav = document.querySelector(".site-nav"), t = document.querySelector(".nav-toggle");
+    var nav = document.querySelector(".site-nav"), t = document.querySelector(".head-logo");
     if (nav) nav.classList.remove("open"); if (t) t.setAttribute("aria-expanded", "false");
     w.classList.add("closed"); setTimeout(function(){ w.classList.remove("closed"); }, 0);
   });

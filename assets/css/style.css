@@ -665,3 +665,22 @@ sup.ref a:hover { color: var(--text); }
 .search-flash { animation: searchFlash 1.8s ease; }
 @keyframes searchFlash { 0%, 40% { background: color-mix(in srgb, #b5b5b5 35%, transparent); } 100% { background: transparent; } }
 @media (prefers-reduced-motion: reduce) { .search-flash { animation: none; } }
+
+/* Section menu opens from the header logo; Find is search only */
+.logo-wrap { position: relative; display: flex; align-items: center; }
+@media (min-width: 721px) {
+  .site-nav { right: auto !important; left: -1rem; }
+  .logo-wrap:focus-within .site-nav, .site-nav.open { display: block !important; }
+  .logo-wrap.closed .site-nav { display: none !important; }
+}
+@media (min-width: 721px) and (hover: hover) {
+  .logo-wrap:hover .site-nav { display: block !important; }
+  .logo-wrap.closed:hover .site-nav { display: none !important; }
+}
+@media (max-width: 720px) {
+  .logo-wrap { position: static; }
+  .site-nav.open { display: block !important; }
+  .site-nav { display: none !important; }
+  .site-nav.open { display: block !important; }
+}
+.head-logo, .head-logo:hover, .head-logo:focus { color: var(--text); }
