@@ -704,14 +704,30 @@ document.addEventListener("click", function (e) {
   });
 })();
 
-/* Chat bubbles in The case appear one after the other */
+/* Chat bubbles in The case: sent one after the other, then delivered, then seen */
 (function () {
   var h = document.querySelector("h1.chat");
   if (!h) return;
+  var bubbles = h.querySelectorAll(".bubble");
+  var status = h.nextElementSibling && h.nextElementSibling.classList.contains("chat-seen") ? h.nextElementSibling : null;
+  var finalText = status ? status.textContent : "";
   document.documentElement.classList.add("js");
-  if (!("IntersectionObserver" in window)) { h.classList.add("said"); return; }
+  var played = false;
+  function swap(text) {
+    if (!status) return;
+    status.classList.remove("on");
+    setTimeout(function () { status.textContent = text; status.classList.add("on"); }, 250);
+  }
+  function play() {
+    if (played) return; played = true;
+    setTimeout(function () { bubbles[0] && bubbles[0].classList.add("sent"); }, 250);
+    setTimeout(function () { bubbles[1] && bubbles[1].classList.add("sent"); }, 1600);
+    setTimeout(function () { if (status) { status.textContent = "Delivered"; status.classList.add("on"); } }, 2250);
+    setTimeout(function () { swap(finalText); }, 4000);
+  }
+  if (!("IntersectionObserver" in window)) { play(); return; }
   var io = new IntersectionObserver(function (es) {
-    es.forEach(function (e) { if (e.isIntersecting) { h.classList.add("said"); io.disconnect(); } });
-  }, { threshold: 0.5 });
+    es.forEach(function (e) { if (e.isIntersecting) { play(); io.disconnect(); } });
+  }, { threshold: 0.6 });
   io.observe(h);
 })();
