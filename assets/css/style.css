@@ -775,3 +775,18 @@ input::placeholder, textarea::placeholder { font-style: italic; }
 .to-top:hover, .to-top:focus-visible { border-color: var(--text); outline: none; }
 @media print { .to-top { display: none; } }
 .hang-quote { text-indent: -0.42em; }
+
+/* The case heading as chat bubbles, as if a woman is speaking */
+h1.chat { display: flex; flex-direction: column; align-items: flex-start; gap: 0.5rem; font-size: clamp(1.6rem, 4vw, 2.35rem); line-height: 1.25; margin-bottom: 1.4rem; }
+h1.chat .bubble {
+  position: relative; display: inline-block; max-width: 100%;
+  padding: 0.55em 0.85em 0.6em; border-radius: 1.05em 1.05em 1.05em 0.3em;
+  background: #efece6; color: var(--text);
+}
+h1.chat .bubble:last-child::after {
+  content: ""; position: absolute; left: -0.32em; bottom: 0; width: 0.7em; height: 0.7em;
+  background: radial-gradient(circle at 0 0, transparent 0.68em, #efece6 0.7em);
+}
+.js h1.chat .bubble { opacity: 0; transform: translateY(10px) scale(0.98); transform-origin: 0 100%; transition: opacity 0.5s ease, transform 0.5s ease; }
+.js h1.chat.said .bubble { opacity: 1; transform: none; }
+.js h1.chat.said .bubble:nth-child(2) { transition-delay: 0.9s; }

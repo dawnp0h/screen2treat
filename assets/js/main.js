@@ -703,3 +703,15 @@ document.addEventListener("click", function (e) {
     b.blur();
   });
 })();
+
+/* Chat bubbles in The case appear one after the other */
+(function () {
+  var h = document.querySelector("h1.chat");
+  if (!h) return;
+  document.documentElement.classList.add("js");
+  if (!("IntersectionObserver" in window)) { h.classList.add("said"); return; }
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { h.classList.add("said"); io.disconnect(); } });
+  }, { threshold: 0.5 });
+  io.observe(h);
+})();
