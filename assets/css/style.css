@@ -856,3 +856,6 @@ main .target-row + .target-caption { margin-top: 0 !important; } main ul.target-
 .model-note { margin-top: 1.1rem !important; } .examples-label { margin-top: 1.4rem !important; }
 #about .labs-note { margin: 1.75rem 0 0; }
 #about .labs-note { margin: 1.75rem 0 0.5rem; }
+/* About opening styled like Our Mission */
+#about h1.about-h { font-family: var(--sans); font-size: 0.72rem; font-weight: 500; line-height: 1.4; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin: 1.5rem 0 0.5rem; }
+#about .about-answer { font-family: var(--serif); font-size: 1.125rem; line-height: 1.75; color: var(--text); margin: 0 0 1rem; }
