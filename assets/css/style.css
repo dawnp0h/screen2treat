@@ -791,3 +791,5 @@ h1.chat .bubble:last-child::after {
 .js h1.chat.said .bubble { opacity: 1; transform: none; }
 .js h1.chat.said .bubble:nth-child(2) { transition-delay: 0.9s; }
 .to-top { width: 52px; height: 52px; }
+.to-top { width: 60px; height: 60px; }
+.to-top { width: 60px; height: 60px; right: 2rem; bottom: 2rem; } @media (max-width: 720px) { .to-top { right: 1.5rem; bottom: 1.5rem; } }
