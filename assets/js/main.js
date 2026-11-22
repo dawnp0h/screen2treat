@@ -51,6 +51,7 @@
       '        <li><a href="#get-involved">Get involved</a></li>' +
       '        <li><a href="#contact">Contact</a></li>' +
       '        <li><a href="#privacy">Privacy</a></li>' +
+      '        <li><a href="#terms">Terms of use</a></li>' +
       '        <li><a href="#references">References</a></li>' +
       "      </ul></div>" +
       "    </div>" +

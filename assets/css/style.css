@@ -875,3 +875,4 @@ main p + .grid, main .target-caption + .grid { margin-top: 3rem; }
 main .grid { margin-bottom: 3rem; }
 .inline-logo { display: inline-flex; align-items: center; vertical-align: baseline; margin-right: 0.15em; }
 #about h1.about-h { margin-top: 2.75rem; }
+#terms .eyebrow::before { content: none; }
