@@ -862,3 +862,14 @@ main .target-row + .target-caption { margin-top: 0 !important; } main ul.target-
 #about .page-header .notice-by { margin: 0.25rem 0 0; }
 #about .page-header { padding-bottom: 0; } #about .page-header + .section { padding-top: 2.5rem; }
 #about .page-header + .section .container > .privacy-h:first-child { margin-top: 0; }
+
+/* More generous spacing around figures */
+main figure.viz, main .viz.threshold, main .viz.models { margin-top: 3rem; margin-bottom: 3rem; }
+main .card figure.viz { margin-top: 2.5rem; margin-bottom: 1rem; }
+main ol.delays, main ol.criteria { margin-top: 3rem; margin-bottom: 3rem; }
+main ul.target-row { margin-top: 3rem !important; margin-bottom: 1.5rem !important; }
+main .target-caption { margin-bottom: 3rem; }
+main .timeline { margin-top: 2rem; margin-bottom: 3rem; }
+main .tl-heading { margin-top: 3.5rem; }
+main p + .grid, main .target-caption + .grid { margin-top: 3rem; }
+main .grid { margin-bottom: 3rem; }
