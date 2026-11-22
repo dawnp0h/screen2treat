@@ -790,3 +790,4 @@ h1.chat .bubble:last-child::after {
 .js h1.chat .bubble { opacity: 0; transform: translateY(10px) scale(0.98); transform-origin: 0 100%; transition: opacity 0.5s ease, transform 0.5s ease; }
 .js h1.chat.said .bubble { opacity: 1; transform: none; }
 .js h1.chat.said .bubble:nth-child(2) { transition-delay: 0.9s; }
+.to-top { width: 52px; height: 52px; }
