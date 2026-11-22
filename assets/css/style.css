@@ -873,3 +873,4 @@ main .timeline { margin-top: 2rem; margin-bottom: 3rem; }
 main .tl-heading { margin-top: 3.5rem; }
 main p + .grid, main .target-caption + .grid { margin-top: 3rem; }
 main .grid { margin-bottom: 3rem; }
+.inline-logo { display: inline-flex; align-items: center; vertical-align: baseline; margin-right: 0.15em; }
