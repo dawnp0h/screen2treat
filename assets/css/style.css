@@ -824,3 +824,6 @@ h1.chat { font-size: clamp(1.1rem, 2.3vw, 1.35rem); gap: 0.6rem; }
 /* iMessage font: Apple's system font (SF Pro) where available */
 h1.chat, h1.chat .bubble, .chat-seen { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; letter-spacing: -0.01em; }
 h1.chat .bubble { font-weight: 400; }
+.lab-links a { color: var(--muted); text-decoration: underline; text-decoration-color: #c9c9c9; text-underline-offset: 3px; }
+.lab-links a:hover { color: var(--text); text-decoration-color: var(--text); }
+.lab-links span[aria-hidden] { margin: 0 0.35rem; color: #c9c9c9; }
