@@ -704,30 +704,37 @@ document.addEventListener("click", function (e) {
   });
 })();
 
-/* Chat bubbles in The case: sent one after the other, then delivered, then seen */
+/* Chat bubbles: sent one after the other, then delivered, then (if set) seen */
 (function () {
-  var h = document.querySelector("h1.chat");
-  if (!h) return;
-  var bubbles = h.querySelectorAll(".bubble");
-  var status = h.nextElementSibling && h.nextElementSibling.classList.contains("chat-seen") ? h.nextElementSibling : null;
-  var finalText = status ? status.textContent : "";
+  var heads = document.querySelectorAll("h1.chat");
+  if (!heads.length) return;
   document.documentElement.classList.add("js");
-  var played = false;
-  function swap(text) {
-    if (!status) return;
-    status.classList.remove("on");
-    setTimeout(function () { status.textContent = text; status.classList.add("on"); }, 250);
-  }
-  function play() {
-    if (played) return; played = true;
-    setTimeout(function () { bubbles[0] && bubbles[0].classList.add("sent"); }, 250);
-    setTimeout(function () { bubbles[1] && bubbles[1].classList.add("sent"); }, 1600);
-    setTimeout(function () { if (status) { status.textContent = "Delivered"; status.classList.add("on"); } }, 2250);
-    setTimeout(function () { swap(finalText); }, 4000);
-  }
-  if (!("IntersectionObserver" in window)) { play(); return; }
-  var io = new IntersectionObserver(function (es) {
-    es.forEach(function (e) { if (e.isIntersecting) { play(); io.disconnect(); } });
-  }, { threshold: 0.6 });
-  io.observe(h);
+  heads.forEach(function (h) {
+    var bubbles = h.querySelectorAll(".bubble");
+    var status = h.nextElementSibling && h.nextElementSibling.classList.contains("chat-seen") ? h.nextElementSibling : null;
+    var finalText = status ? status.textContent.trim() : "";
+    var played = false;
+    function play() {
+      if (played) return; played = true;
+      var t = 250;
+      bubbles.forEach(function (b, i) {
+        setTimeout(function () { b.classList.add("sent"); }, t);
+        if (i < bubbles.length - 1) t += 1350;
+      });
+      t += 650;
+      setTimeout(function () { if (status) { status.textContent = "Delivered"; status.classList.add("on"); } }, t);
+      if (status && finalText !== "Delivered") {
+        t += 1750;
+        setTimeout(function () {
+          status.classList.remove("on");
+          setTimeout(function () { status.textContent = finalText; status.classList.add("on"); }, 250);
+        }, t);
+      }
+    }
+    if (!("IntersectionObserver" in window)) { play(); return; }
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { play(); io.disconnect(); } });
+    }, { threshold: 0.6 });
+    io.observe(h);
+  });
 })();
