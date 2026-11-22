@@ -30,7 +30,7 @@
     headerSlot.outerHTML =
       '<header class="site-header">' +
       '  <div class="container header-inner">' +
-      '    <div class="logo-wrap"><a class="logo head-logo" href="#home" aria-label="' + SITE_NAME + ', home" aria-controls="site-nav" aria-expanded="false">' + SITE_NAME + '<span class="logo-dots" aria-hidden="true"><i></i><i></i><i></i></span></a>' +
+      '    <div class="logo-wrap"><a class="logo head-logo" href="#home" aria-label="' + SITE_NAME + ', home" aria-controls="site-nav" aria-expanded="false">' + SITE_NAME + '<span class="logo-dots" aria-hidden="true"><i></i><i></i><i></i></span></a><span class="current-section" aria-hidden="true"><span class="cs-sep">·</span><span class="cs-name"></span></span>' +
       '    <nav class="site-nav" id="site-nav" aria-label="Main"><ul>' + links + '</ul><a class="logo nav-logo" href="#home" aria-label="' + SITE_NAME + ', home">' + SITE_NAME + '<span class="logo-dots" aria-hidden="true"><i></i><i></i><i></i></span></a></nav></div>' +
       '    <div class="nav-wrap"><div class="search-box" role="search"><input class="site-search" id="site-search" type="search" placeholder="Find" aria-label="Find on this site" autocomplete="off" spellcheck="false" aria-controls="search-results" aria-expanded="false"></div>' +
       '    <div class="search-results" id="search-results" role="listbox" aria-label="Search results"></div></div>' +
@@ -737,4 +737,40 @@ document.addEventListener("click", function (e) {
     }, { threshold: 0.6 });
     io.observe(h);
   });
+})();
+
+/* Current section name beside the header logo */
+(function () {
+  var box = document.querySelector(".current-section");
+  var nameEl = box && box.querySelector(".cs-name");
+  if (!box || !nameEl) return;
+  var labels = {};
+  (typeof NAV !== "undefined" ? NAV : []).forEach(function (n) { labels[n.href.slice(1)] = n.label; });
+  document.querySelectorAll(".site-nav a[href^='#']").forEach(function (a) {
+    var id = a.getAttribute("href").slice(1);
+    if (!labels[id] && a.textContent.trim()) labels[id] = a.textContent.trim();
+  });
+  labels.privacy = labels.privacy || "Privacy Notice";
+  labels.terms = labels.terms || "Terms of Use";
+  var blocks = Array.prototype.slice.call(document.querySelectorAll("main .page-block[id]"));
+  var current = null, timer = null, ticking = false;
+  function pick() {
+    ticking = false;
+    var header = document.querySelector(".site-header");
+    var line = (header ? header.getBoundingClientRect().bottom : 0) + window.innerHeight * 0.25;
+    var id = null;
+    blocks.forEach(function (b) { if (b.getBoundingClientRect().top <= line) id = b.id; });
+    var label = id && id !== "home" ? labels[id] || "" : "";
+    if (label === current) return;
+    current = label;
+    box.classList.remove("on");
+    clearTimeout(timer);
+    timer = setTimeout(function () {
+      nameEl.textContent = label;
+      if (label) box.classList.add("on");
+    }, 180);
+  }
+  window.addEventListener("scroll", function () { if (!ticking) { ticking = true; requestAnimationFrame(pick); } }, { passive: true });
+  window.addEventListener("resize", pick);
+  pick();
 })();

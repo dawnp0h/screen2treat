@@ -882,3 +882,14 @@ h1.chat.chat-in { align-items: flex-start; margin-bottom: 3rem; }
 h1.chat.chat-in .bubble { background: #e9e9eb; border-radius: 1.05em 1.05em 1.05em 0.3em; transform-origin: 0 100%; }
 h1.chat.chat-in .bubble:last-child::after { right: auto; left: -0.32em; background: radial-gradient(circle at 0 0, transparent 0.68em, #e9e9eb 0.7em); }
 #references .refs-note { margin: 2rem 0 0; }
+
+/* Current section beside the header logo */
+.current-section { display: inline-flex; align-items: center; margin-left: 0.7rem; font-family: var(--sans); font-size: 0.8rem; color: var(--muted); white-space: nowrap; opacity: 0; transform: translateY(3px); transition: opacity 0.25s ease, transform 0.25s ease; pointer-events: none; }
+.current-section.on { opacity: 1; transform: none; }
+.current-section .cs-sep { margin-right: 0.6rem; color: #b5b5b5; }
+@media (max-width: 720px) {
+  .logo-wrap { flex-direction: column; align-items: flex-start; }
+  .current-section { margin: 0.15rem 0 0; font-size: 0.7rem; }
+  .current-section .cs-sep { display: none; }
+}
+.header-inner .logo.head-logo { margin-right: 0; } .header-inner .logo-wrap { margin-right: 1.5rem; }
