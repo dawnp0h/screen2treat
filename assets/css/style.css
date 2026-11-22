@@ -876,3 +876,8 @@ main .grid { margin-bottom: 3rem; }
 .inline-logo { display: inline-flex; align-items: center; vertical-align: baseline; margin-right: 0.15em; }
 #about h1.about-h { margin-top: 2.75rem; }
 #terms .eyebrow::before { content: none; }
+
+/* Incoming bubble (an opposing voice): left side, iMessage received grey */
+h1.chat.chat-in { align-items: flex-start; margin-bottom: 3rem; }
+h1.chat.chat-in .bubble { background: #e9e9eb; border-radius: 1.05em 1.05em 1.05em 0.3em; transform-origin: 0 100%; }
+h1.chat.chat-in .bubble:last-child::after { right: auto; left: -0.32em; background: radial-gradient(circle at 0 0, transparent 0.68em, #e9e9eb 0.7em); }
