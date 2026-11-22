@@ -893,3 +893,4 @@ h1.chat.chat-in .bubble:last-child::after { right: auto; left: -0.32em; backgrou
   .current-section .cs-sep { display: none; }
 }
 .header-inner .logo.head-logo { margin-right: 0; } .header-inner .logo-wrap { margin-right: 1.5rem; }
+.lead-first { display: block; margin-bottom: 0.9rem; }
