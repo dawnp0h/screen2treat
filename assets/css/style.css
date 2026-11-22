@@ -859,3 +859,6 @@ main .target-row + .target-caption { margin-top: 0 !important; } main ul.target-
 /* About opening styled like Our Mission */
 #about h1.about-h { font-family: var(--sans); font-size: 0.72rem; font-weight: 500; line-height: 1.4; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin: 1.5rem 0 0.5rem; }
 #about .about-answer { font-family: var(--serif); font-size: 1.125rem; line-height: 1.75; color: var(--text); margin: 0 0 1rem; }
+#about .page-header .notice-by { margin: 0.25rem 0 0; }
+#about .page-header { padding-bottom: 0; } #about .page-header + .section { padding-top: 2.5rem; }
+#about .page-header + .section .container > .privacy-h:first-child { margin-top: 0; }
