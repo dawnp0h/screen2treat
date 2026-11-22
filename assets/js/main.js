@@ -13,6 +13,11 @@
     { href: "#contact", label: "Contact" },
     { href: "#references", label: "References" }
   ];
+  // Menu labels always match each section's label on the page.
+  NAV.forEach(function (item) {
+    var el = document.querySelector(item.href + " .eyebrow");
+    if (el && el.textContent.trim()) item.label = el.textContent.trim();
+  });
   // Footer only. The footer's first row always mirrors NAV above.
   var LEGAL = [
     { href: "#privacy", label: "Privacy Notice" },
