@@ -10,7 +10,8 @@
     { href: "#evidence", label: "Latest evidence" },
     { href: "#about", label: "About" },
     { href: "#get-involved", label: "Get involved" },
-    { href: "#contact", label: "Contact" }
+    { href: "#contact", label: "Contact" },
+    { href: "#references", label: "References" }
   ];
 
 
