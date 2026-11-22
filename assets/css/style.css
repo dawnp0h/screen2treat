@@ -812,3 +812,11 @@ h1.chat { margin: 2.5rem 0 3rem; }
 /* iMessage blue bubbles */
 h1.chat .bubble { background: #0b84fe; color: #fff; }
 h1.chat .bubble:last-child::after { background: radial-gradient(circle at 0 0, transparent 0.68em, #0b84fe 0.7em); }
+
+/* Chat bubbles on the right, original colours, with a seen receipt */
+h1.chat { align-items: flex-end; margin-bottom: 0.5rem; }
+h1.chat .bubble { background: #efece6; color: var(--text); border-radius: 1.05em 1.05em 0.3em 1.05em; transform-origin: 100% 100%; }
+h1.chat .bubble:last-child::after { left: auto; right: -0.32em; background: radial-gradient(circle at 100% 0, transparent 0.68em, #efece6 0.7em); }
+.chat-seen { text-align: right; font-family: var(--sans); font-size: 0.78rem; color: var(--muted); margin: 0 0 3rem; }
+.js .chat-seen { opacity: 0; transition: opacity 0.5s ease 1.7s; }
+.js h1.chat.said + .chat-seen { opacity: 1; }
