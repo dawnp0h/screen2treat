@@ -13,6 +13,11 @@
     { href: "#contact", label: "Contact" },
     { href: "#references", label: "References" }
   ];
+  // Footer only. The footer's first row always mirrors NAV above.
+  var LEGAL = [
+    { href: "#privacy", label: "Privacy Notice" },
+    { href: "#terms", label: "Terms of Use" }
+  ];
 
 
   // ---------- Header ----------
@@ -42,18 +47,11 @@
       '    <div class="footer-grid">' +
       "      <div><strong>" + SITE_NAME + "</strong>" +
       "        <p>The ethical case for eliminating cervical cancer.</p></div>" +
-      '      <div><strong>The argument</strong><ul>' +
-      '        <li><a href="#the-case">The case</a></li>' +
-      '        <li><a href="#objections">Objections</a></li>' +
-      '        <li><a href="#evidence">Evidence</a></li>' +
+      '      <div><strong>Sections</strong><ul>' +
+      NAV.map(function (item) { return '<li><a href="' + item.href + '">' + item.label + "</a></li>"; }).join("") +
       "      </ul></div>" +
-      '      <div><strong>Organisation</strong><ul>' +
-      '        <li><a href="#about">About</a></li>' +
-      '        <li><a href="#get-involved">Get involved</a></li>' +
-      '        <li><a href="#contact">Contact</a></li>' +
-      '        <li><a href="#privacy">Privacy</a></li>' +
-      '        <li><a href="#terms">Terms of use</a></li>' +
-      '        <li><a href="#references">References</a></li>' +
+      '      <div><strong>Legal</strong><ul>' +
+      LEGAL.map(function (item) { return '<li><a href="' + item.href + '">' + item.label + "</a></li>"; }).join("") +
       "      </ul></div>" +
       "    </div>" +
       '    <div class="footer-bottom">© ' + new Date().getFullYear() + " <span class=\"brand\">" + SITE_NAME + "</span>" +
