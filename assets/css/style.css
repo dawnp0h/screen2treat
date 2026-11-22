@@ -854,3 +854,4 @@ main .target-caption { margin-bottom: 2.5rem; }
 main .timeline { margin-bottom: 2rem; }
 main .target-row + .target-caption { margin-top: 0 !important; } main ul.target-row { margin-bottom: 1.5rem !important; }
 .model-note { margin-top: 1.1rem !important; } .examples-label { margin-top: 1.4rem !important; }
+#about .labs-note { margin: 1.75rem 0 0; }
