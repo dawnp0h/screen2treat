@@ -686,3 +686,20 @@ document.addEventListener("click", function (e) {
   var sel = document.getElementById("topic");
   if (a && sel) sel.value = a.getAttribute("data-topic");
 });
+
+/* Back to top button */
+(function () {
+  var b = document.createElement("button");
+  b.type = "button";
+  b.className = "to-top";
+  b.setAttribute("aria-label", "Back to top");
+  b.innerHTML = '<svg viewBox="0 0 32 32" width="18" height="18" aria-hidden="true" focusable="false"><polygon points="16,14 6,24 7.4,25.4 16,16.8 24.6,25.4 26,24" fill="currentColor"/><rect x="4" y="8" width="24" height="2" fill="currentColor"/></svg>';
+  document.body.appendChild(b);
+  function set() { b.classList.toggle("on", window.scrollY > window.innerHeight); }
+  window.addEventListener("scroll", set, { passive: true });
+  set();
+  b.addEventListener("click", function () {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    b.blur();
+  });
+})();

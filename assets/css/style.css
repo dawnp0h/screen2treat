@@ -759,3 +759,18 @@ input::placeholder, textarea::placeholder { font-style: italic; }
 .form-title { margin: 2.5rem 0 0.75rem; }
 .form input, .form textarea, .form select, .form select option,
 .form input::placeholder, .form textarea::placeholder { font-size: 0.9rem; }
+
+/* Back to top */
+.to-top {
+  position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 40;
+  width: 44px; height: 44px; border-radius: 50%; padding: 0;
+  display: flex; align-items: center; justify-content: center; cursor: pointer;
+  color: var(--text); background: color-mix(in srgb, var(--bg) 85%, transparent);
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  border: 1px solid var(--rule); box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+  opacity: 0; visibility: hidden; transform: translateY(8px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s linear 0.3s, border-color 0.2s ease;
+}
+.to-top.on { opacity: 1; visibility: visible; transform: none; transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s, border-color 0.2s ease; }
+.to-top:hover, .to-top:focus-visible { border-color: var(--text); outline: none; }
+@media print { .to-top { display: none; } }
