@@ -774,3 +774,4 @@ input::placeholder, textarea::placeholder { font-style: italic; }
 .to-top.on { opacity: 1; visibility: visible; transform: none; transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s, border-color 0.2s ease; }
 .to-top:hover, .to-top:focus-visible { border-color: var(--text); outline: none; }
 @media print { .to-top { display: none; } }
+.hang-quote { text-indent: -0.42em; }
