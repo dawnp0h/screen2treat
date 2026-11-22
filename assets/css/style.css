@@ -820,3 +820,4 @@ h1.chat .bubble:last-child::after { left: auto; right: -0.32em; background: radi
 .chat-seen { text-align: right; font-family: var(--sans); font-size: 0.78rem; color: var(--muted); margin: 0 0 3rem; }
 .js .chat-seen { opacity: 0; transition: opacity 0.5s ease 1.7s; }
 .js h1.chat.said + .chat-seen { opacity: 1; }
+h1.chat { font-size: clamp(1.1rem, 2.3vw, 1.35rem); gap: 0.6rem; }
