@@ -1133,3 +1133,8 @@ html[data-palette="cvd"][data-theme="dark"] { --dart-red: #77736d; --dart-green:
 .target-row .board { width: 70%; }
 @media (max-width: 560px) { .target-row .board { width: 150px; } }
 .board-num { font-size: 13cqw; }
+
+/* Target is black until the dart lands, then turns red */
+.board .t-red, .board .bull { transition: fill 0.25s ease; }
+.board.armed .t-red, .board.armed .bull { fill: var(--text) !important; opacity: 1 !important; }
+.board.armed.play .t-red, .board.armed.play .bull { fill: var(--c-alert) !important; transition: fill 0.25s ease 0.52s, transform 0.45s ease; }
