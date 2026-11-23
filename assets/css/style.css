@@ -1165,3 +1165,7 @@ html[data-palette="cvd"][data-theme="dark"] { --dart-red: #77736d; --dart-green:
 .fig-list a:hover { color: var(--text); }
 .fig-list .fig-num { display: inline-block; min-width: 5.5em; }
 .fig-list a { display: flex; gap: 0.5em; } .fig-list .fig-num { flex: 0 0 5.5em; }
+/* Figure titles sit below each figure */
+.fig-label { margin: 1rem 0 0.35rem !important; }
+.target-row, .timeline, .delays { margin-bottom: 0.4rem !important; }
+.fig-label + figcaption, .fig-label + .target-caption, .fig-label + p.viz { margin-top: 0 !important; }
