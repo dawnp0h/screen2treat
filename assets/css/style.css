@@ -1239,3 +1239,7 @@ details.delays-drop[open] > .fig-label { margin-bottom: 2rem !important; }
 .goal-chart .fig-label { margin-top: 1.6rem !important; }
 .goal-chart figcaption { margin-top: 0.6rem; }
 .goal-chart { padding-top: 1rem !important; }
+
+/* Darker line between sections */
+.page-block + .page-block { border-top-color: #b9b4ac; }
+html[data-theme="dark"] .page-block + .page-block { border-top-color: #55524d; }
