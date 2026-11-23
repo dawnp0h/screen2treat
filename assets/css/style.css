@@ -1048,3 +1048,12 @@ html[data-palette="cvd"] { --dart-red: #d55e00; --dart-green: #0072b2; }
 /* Labels and rules in ink, to sit with the dartboards */
 .target-row li { border-top-color: var(--text) !important; }
 .target-row .target-step { color: var(--text) !important; }
+
+/* Muted dartboard, closer to the site's quiet palette */
+:root { --dart-black: #4a4641; --dart-cream: #f1ece2; --dart-red: #a9524a; --dart-green: #6f8c74; --dart-rim: #4a4641; }
+html[data-theme="dark"] { --dart-black: #2b2926; --dart-cream: #5b564f; --dart-red: #b8645b; --dart-green: #7f9c84; --dart-rim: #5b564f; }
+html[data-palette="cvd"] { --dart-red: #c47a3f; --dart-green: #5a86a8; }
+html[data-palette="cvd"][data-theme="dark"] { --dart-red: #d08a52; --dart-green: #6f9cc0; }
+.board .d-rim { r: 97.5; }
+.board .face path { stroke: var(--bg); stroke-width: 0.6; }
+.board-num { text-shadow: none; }
