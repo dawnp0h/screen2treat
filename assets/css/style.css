@@ -1127,3 +1127,4 @@ html[data-palette="cvd"][data-theme="dark"] { --dart-red: #77736d; --dart-green:
 .board.armed.play .face { transform: none; opacity: 1; }
 .board.armed .bullg { transform: none; }
 .board-num { font-size: 16cqw; }
+.board-num { font-size: 19cqw; }
