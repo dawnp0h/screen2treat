@@ -943,6 +943,7 @@ document.addEventListener("click", function (e) {
   document.querySelectorAll("main .page-block").forEach(function (block) {
     var eyebrow = block.querySelector(".page-header .eyebrow");
     if (!eyebrow || block.querySelector(".read-time")) return;
+    if (["about", "get-involved", "contact", "references", "figures", "privacy", "terms"].indexOf(block.id) !== -1) return;
     var copy = block.cloneNode(true);
     copy.querySelectorAll("script, style, svg, [aria-hidden='true'], .read-time, .eyebrow").forEach(function (n) { n.remove(); });
     var words = (copy.textContent || "").trim().split(/\s+/).filter(function (w) { return /[A-Za-z0-9]/.test(w); }).length;
