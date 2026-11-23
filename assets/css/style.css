@@ -1107,3 +1107,8 @@ html[data-palette="cvd"][data-theme="dark"] { --dart-red: #77736d; --dart-green:
 .board.armed.play .board-num { transition-duration: 0.25s; transition-delay: 0.85s; }
 /* Descriptions centred under each dartboard */
 .target-row li p:last-child { text-align: center; }
+
+/* Red bullseye arrives only when the dart lands */
+.board .bull { transition: opacity 0.2s ease; }
+.board.armed .bull { opacity: 0; }
+.board.armed.play .bull { opacity: 1; transition-delay: 0.52s; }
