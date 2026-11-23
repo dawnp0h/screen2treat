@@ -1188,3 +1188,13 @@ details.examples > summary::after { content: ""; width: 7px; height: 7px; border
 details.examples[open] > summary::after { transform: rotate(-135deg); }
 details.examples > summary:hover { color: var(--text); }
 details.examples > .model-examples { margin: 0.2rem 0 1rem; }
+
+/* Pathway lists as drop-downs */
+details.tl-more { margin: 0.8rem 0 0.4rem; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+details.tl-more > summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; padding: 0.6rem 0; font-style: italic; color: var(--muted); }
+details.tl-more > summary::-webkit-details-marker { display: none; }
+details.tl-more > summary::after { content: ""; width: 7px; height: 7px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(45deg); transition: transform 0.2s ease; margin-right: 4px; flex: none; }
+details.tl-more[open] > summary::after { transform: rotate(-135deg); }
+details.tl-more > summary:hover { color: var(--text); }
+details.tl-more > .tl-list { margin: 0.2rem 0 0.9rem; }
+details.tl-more > summary { font-size: 0.98rem; }
