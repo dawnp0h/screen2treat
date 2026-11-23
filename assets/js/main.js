@@ -13,8 +13,8 @@
     { href: "#about", label: "About" },
     { href: "#get-involved", label: "Get involved" },
     { href: "#contact", label: "Contact" },
-    { href: "#references", label: "References" },
-    { href: "#figures", label: "List of Figures" }
+    { href: "#references", label: "References", menu: false },
+    { href: "#figures", label: "List of Figures", menu: false }
   ];
   // Menu labels always match each section's label on the page.
   NAV.forEach(function (item) {
@@ -31,7 +31,7 @@
   // ---------- Header ----------
   var headerSlot = document.querySelector('[data-include="header"]');
   if (headerSlot) {
-    var links = NAV.map(function (item) {
+    var links = NAV.filter(function (item) { return item.menu !== false; }).map(function (item) {
       return '<li><a href="' + item.href + '">' + item.label + "</a></li>";
     }).join("");
 
