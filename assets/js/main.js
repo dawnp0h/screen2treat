@@ -13,7 +13,8 @@
     { href: "#about", label: "About" },
     { href: "#get-involved", label: "Get involved" },
     { href: "#contact", label: "Contact" },
-    { href: "#references", label: "References" }
+    { href: "#references", label: "References" },
+    { href: "#figures", label: "List of Figures" }
   ];
   // Menu labels always match each section's label on the page.
   NAV.forEach(function (item) {
@@ -637,7 +638,7 @@
     index = [];
     var sel = "h1, h2, h3, h4, p, li, figcaption, summary .ground-lead, .stat-label, td, th, blockquote";
     document.querySelectorAll("main .page-block").forEach(function (block) {
-      if (block.id === "references") return;
+      if (block.id === "references" || block.id === "figures") return;
       block.querySelectorAll(sel).forEach(function (el) {
         if (el.closest(".search-results, form, .visually-hidden, [aria-hidden='true']")) return;
         if (el.tagName === "LI" && el.querySelector("p, li")) return;

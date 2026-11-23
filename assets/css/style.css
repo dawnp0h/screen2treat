@@ -1152,3 +1152,16 @@ html[data-palette="cvd"][data-theme="dark"] { --dart-red: #77736d; --dart-green:
 .board .dart-body { stroke: var(--text); }
 .board .dart-fin { fill: var(--text); }
 .board-num { color: var(--bg); }
+
+/* Figure labels and List of Figures */
+.fig-label { font-family: var(--sans); font-size: 0.78rem; color: var(--muted); margin: 0 0 0.6rem !important; line-height: 1.5; }
+.fig-label .fig-num, .fig-list .fig-num { font-weight: 600; color: var(--text); margin-right: 0.5em; letter-spacing: 0.02em; }
+.target-row, .timeline, .delays { margin-top: 0.4rem !important; }
+.fig-label + figure, .fig-label + ul, .fig-label + ol { margin-top: 0 !important; }
+.fig-list { list-style: none; padding: 0; margin: 0; font-family: var(--sans); font-size: 0.92rem; }
+.fig-list li { border-top: 1px solid var(--rule); }
+.fig-list li:last-child { border-bottom: 1px solid var(--rule); }
+.fig-list a { display: block; padding: 0.7rem 0; color: var(--muted); text-decoration: none; }
+.fig-list a:hover { color: var(--text); }
+.fig-list .fig-num { display: inline-block; min-width: 5.5em; }
+.fig-list a { display: flex; gap: 0.5em; } .fig-list .fig-num { flex: 0 0 5.5em; }
