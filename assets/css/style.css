@@ -1259,3 +1259,6 @@ html[data-theme="dark"] .page-block + .page-block { border-top-color: #55524d; }
 .home .cta { animation-duration: 0.6s; animation-delay: 1.4s; }
 .statement span:nth-child(2) { animation-delay: 0.4s; }
 .home .cta { animation-delay: 1.05s; }
+.statement span:nth-child(1) { opacity: 1; animation: none; }
+.statement span:nth-child(2) { animation-delay: 0.3s; }
+.home .cta { animation-delay: 0.95s; }
