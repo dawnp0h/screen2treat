@@ -1020,3 +1020,9 @@ html[data-palette="cvd"][data-theme="dark"] { --c-aim: #56b4e9; --c-aim-soft: #1
 .people-row .human { width: auto; flex: 0 1 44px; }
 @media (max-width: 560px) { .target-row .board { width: 70%; } .people-row .human { flex-basis: 28px; } }
 @media (max-width: 560px) { .target-row .board { width: 180px; } }
+
+/* Waffle spans the full text column: 20 by 5 on wide screens, 10 by 10 on phones */
+.waffle-grid { max-width: none !important; width: 100%; grid-template-columns: repeat(20, 1fr) !important; gap: 4px !important; }
+.waffle-grid span { border-radius: 3px; }
+@keyframes wafflePulse { 0%, 100% { transform: scale(1); } 45% { transform: scale(1.1); } }
+@media (max-width: 560px) { .waffle-grid { grid-template-columns: repeat(10, 1fr) !important; gap: 3px !important; } }

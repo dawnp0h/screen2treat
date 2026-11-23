@@ -474,8 +474,9 @@
       // 2. A wave runs across the 94 squares, then the 6 empty squares fade back
       later(function () {
         grid.classList.add("settled");
+        var cols = getComputedStyle(grid).gridTemplateColumns.split(" ").length || 10;
         on.forEach(function (c, i) {
-          var row = Math.floor(i / 10), col = i % 10;
+          var row = Math.floor(i / cols), col = i % cols;
           c.style.animationDelay = ((row + col) * 45) + "ms";
           c.classList.add("pulse");
         });
