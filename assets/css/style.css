@@ -976,3 +976,18 @@ html.theme-anim, html.theme-anim body, html.theme-anim * { transition: backgroun
 .target-row .target-step { color: var(--c-good); }
 .target-row .target-bar { border-left-color: var(--c-good); background: var(--c-good-soft); border-radius: 0 4px 4px 0; }
 .target-row .target-bar span { background: var(--c-good); }
+
+/* 90-70-90 in an aspirational "aim" colour: a target still being worked towards */
+:root { --c-aim: #2456c9; --c-aim-soft: #e3eafa; }
+html[data-theme="dark"] { --c-aim: #7ea3ff; --c-aim-soft: #1a2440; }
+html[data-palette="cvd"] { --c-aim: #0072b2; --c-aim-soft: #dceaf5; }
+html[data-palette="cvd"][data-theme="dark"] { --c-aim: #56b4e9; --c-aim-soft: #15283a; }
+.target-row li { border-top-color: var(--c-aim); }
+.target-row .target-step { color: var(--c-aim); font-weight: 500; }
+.target-row .target-bar { border-left-color: var(--c-aim); background: var(--c-aim-soft); }
+.target-row .target-bar span { background: linear-gradient(90deg, color-mix(in srgb, var(--c-aim) 70%, var(--bg)), var(--c-aim)); position: relative; }
+.target-row .target-bar span::after { content: ""; position: absolute; right: -4px; top: 50%; width: 12px; height: 12px; border-radius: 50%; transform: translateY(-50%); background: var(--c-aim); box-shadow: 0 0 0 3px var(--bg), 0 0 0 4px var(--c-aim); }
+/* Targets are the world's goals, not progress: no bars */
+.target-row .target-bar { display: none !important; }
+.target-row .stat { margin-bottom: 0.9rem !important; }
+.target-row .stat + p { margin-top: 0 !important; }
