@@ -1268,3 +1268,9 @@ html[data-theme="dark"] .page-block + .page-block { border-top-color: #55524d; }
 /* Estimated reading time below each section title */
 .read-time { font-family: var(--sans); font-size: 0.78rem; color: var(--muted); margin: 0.35rem 0 0 !important; letter-spacing: 0.01em; }
 .read-time { text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.7rem; }
+
+/* Target labels: equal space above and below, slightly larger */
+.target-row li { padding-top: 1.5rem !important; }
+.target-row .target-step { font-size: 0.86rem !important; margin: 0 !important; line-height: 1.2; }
+.target-row .board { margin-top: 1.5rem !important; }
+.target-row .board { margin-top: calc(1.5rem + 2px) !important; }
