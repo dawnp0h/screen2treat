@@ -316,8 +316,8 @@
         if (entry.isIntersecting) {
           var token = ++run;
           boards.forEach(function (b, i) {
-            b.querySelector(".board-num").textContent = "0%";
-            setTimeout(function () { if (token === run) { b.classList.add("play"); count(b, token, 1070); } }, i * 350);
+            b.querySelector(".board-num").textContent = b.getAttribute("data-target") + "%";
+            setTimeout(function () { if (token === run) { b.classList.add("play"); } }, i * 350);
           });
         } else { run++; boards.forEach(function (b) { b.classList.remove("play"); }); }
       });

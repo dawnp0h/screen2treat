@@ -1081,3 +1081,19 @@ html[data-palette="cvd"][data-theme="dark"] { --dart-red: #77736d; --dart-green:
 .board.armed.play .board-num { transition-delay: 1.07s; }
 .board.armed.play .face { animation: dartHit 0.35s ease-out 1.07s both; }
 @keyframes dartHit { 0% { transform: none; } 30% { transform: translate(-1.5px, 1.5px) rotate(-0.6deg); } 100% { transform: none; } }
+
+/* Dart flies to the centre, sinks into the bullseye, then the number appears */
+.board .dart { transform-box: view-box; transform-origin: 0 0; transition: none; }
+.board.armed .dart { transform: translateX(170px); opacity: 0; }
+.board.armed.play .dart { animation: dartIn 1.1s cubic-bezier(.4,0,.6,1) 0.7s both; }
+@keyframes dartIn {
+  0% { transform: translateX(170px); opacity: 0; }
+  8% { opacity: 1; }
+  32% { transform: translateX(0); opacity: 1; }
+  70% { transform: translateX(0) scale(1); opacity: 1; }
+  100% { transform: translateX(0) scale(0.15); opacity: 0; }
+}
+.board.armed.play .face { animation: dartHit 0.35s ease-out 1.05s both; }
+.board-num { transition: opacity 0.35s ease, transform 0.35s ease; }
+.board.armed .board-num { transform: scale(0.85); }
+.board.armed.play .board-num { transform: none; transition-delay: 1.65s; }
