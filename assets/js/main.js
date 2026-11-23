@@ -8,6 +8,7 @@
     { href: "#the-case", label: "The case" },
     { href: "#objections", label: "Common objections" },
     { href: "#evidence", label: "Latest evidence" },
+    { href: "#path", label: "Global Strategy" },
     { href: "#response", label: "Screen-to-Treatment Pathway" },
     { href: "#about", label: "About" },
     { href: "#get-involved", label: "Get involved" },
