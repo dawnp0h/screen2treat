@@ -1069,3 +1069,15 @@ html[data-palette="cvd"][data-theme="dark"] { --dart-red: #77736d; --dart-green:
 /* Target labels centred over each dartboard */
 .target-row .target-step { text-align: center; }
 .target-row .board { margin-left: auto; margin-right: auto; }
+
+/* Darts: each number arrives with a dart */
+.board .dart-tip { stroke: #8d8881; stroke-width: 1.6; stroke-linecap: round; }
+.board .dart-barrel { fill: var(--text); }
+.board .dart-shaft { stroke: var(--muted); stroke-width: 2; stroke-linecap: round; }
+.board .dart-flight { fill: var(--c-alert); stroke: var(--bg); stroke-width: 0.6; }
+.board .dart { transition: transform 0.32s cubic-bezier(.5,0,.9,.6), opacity 0.12s linear; }
+.board.armed .dart { transform: translateX(170px); opacity: 0; }
+.board.armed.play .dart { transform: none; opacity: 1; transition-delay: 0.75s; }
+.board.armed.play .board-num { transition-delay: 1.07s; }
+.board.armed.play .face { animation: dartHit 0.35s ease-out 1.07s both; }
+@keyframes dartHit { 0% { transform: none; } 30% { transform: translate(-1.5px, 1.5px) rotate(-0.6deg); } 100% { transform: none; } }

@@ -317,7 +317,7 @@
           var token = ++run;
           boards.forEach(function (b, i) {
             b.querySelector(".board-num").textContent = "0%";
-            setTimeout(function () { if (token === run) { b.classList.add("play"); count(b, token, 550); } }, i * 350);
+            setTimeout(function () { if (token === run) { b.classList.add("play"); count(b, token, 1070); } }, i * 350);
           });
         } else { run++; boards.forEach(function (b) { b.classList.remove("play"); }); }
       });
