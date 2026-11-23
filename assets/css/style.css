@@ -1144,3 +1144,4 @@ html[data-palette="cvd"][data-theme="dark"] { --dart-red: #77736d; --dart-green:
 #response figure, #response .timeline { margin-top: 2.75rem !important; margin-bottom: 2.75rem !important; }
 #response .model + .model { margin-top: 2.25rem; }
 .board-num { font-size: 19cqw; }
+.target-row .board { margin-top: 1.4rem !important; margin-bottom: 1.6rem !important; }
