@@ -1172,3 +1172,4 @@ html[data-palette="cvd"][data-theme="dark"] { --dart-red: #77736d; --dart-green:
 
 /* Target stays still; only the dart moves, then the number appears */
 .board.armed .face, .board.armed.play .face, .board.armed .bullg, .board.armed.play .bullg { transform: none !important; opacity: 1 !important; animation: none !important; transition: none !important; }
+.fig-sub { margin: 0.9rem 0 1.2rem !important; } #response .flow:has(+ .fig-sub) { margin-bottom: 0 !important; }
