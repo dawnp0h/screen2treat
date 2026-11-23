@@ -1115,3 +1115,15 @@ html[data-palette="cvd"][data-theme="dark"] { --dart-red: #77736d; --dart-green:
 /* Simple dart: one line and one fin */
 .board .dart-body { stroke: var(--text); stroke-width: 3.2; stroke-linecap: round; }
 .board .dart-fin { fill: var(--text); stroke: var(--text); stroke-width: 1; stroke-linejoin: round; }
+
+/* Minimal target: concentric red rings, dart, red bullseye on impact */
+.board .t-red { fill: var(--c-alert); }
+.board .t-bg { fill: var(--bg); }
+.board .bull { fill: var(--c-alert) !important; }
+.board .dart-halo { stroke: var(--bg); stroke-width: 8; stroke-linecap: round; }
+.board .dart-body { stroke: var(--c-alert); stroke-width: 3.6; stroke-linecap: round; }
+.board .dart-fin { fill: var(--c-alert); stroke: var(--bg); stroke-width: 2.4; paint-order: stroke; stroke-linejoin: round; }
+.board.armed .face { transform: scale(0.6); opacity: 0; }
+.board.armed.play .face { transform: none; opacity: 1; }
+.board.armed .bullg { transform: none; }
+.board-num { font-size: 16cqw; }
