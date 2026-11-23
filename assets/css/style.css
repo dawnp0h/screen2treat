@@ -1146,3 +1146,9 @@ html[data-palette="cvd"][data-theme="dark"] { --dart-red: #77736d; --dart-green:
 .board-num { font-size: 19cqw; }
 .target-row .board { margin-top: 1.4rem !important; margin-bottom: 1.6rem !important; }
 .focus-line { margin-top: 1.25rem !important; }
+
+/* Targets in black and white */
+.board.armed .t-red, .board.armed .bull, .board.armed.play .t-red, .board.armed.play .bull, .board .t-red, .board .bull { fill: var(--text) !important; }
+.board .dart-body { stroke: var(--text); }
+.board .dart-fin { fill: var(--text); }
+.board-num { color: var(--bg); }
