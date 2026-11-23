@@ -1243,3 +1243,6 @@ details.delays-drop[open] > .fig-label { margin-bottom: 2rem !important; }
 /* Darker line between sections */
 .page-block + .page-block { border-top-color: #b9b4ac; }
 html[data-theme="dark"] .page-block + .page-block { border-top-color: #55524d; }
+.goal-h { margin-top: 3.5rem !important; }
+.impact-line { margin-top: 1.5rem; }
+#path .grid { margin-bottom: 0.5rem !important; } #path .grid + .impact-line { margin-top: 0 !important; }
