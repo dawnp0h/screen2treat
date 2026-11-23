@@ -1169,3 +1169,6 @@ html[data-palette="cvd"][data-theme="dark"] { --dart-red: #77736d; --dart-green:
 .fig-label { margin: 1rem 0 0.35rem !important; }
 .target-row, .timeline, .delays { margin-bottom: 0.4rem !important; }
 .fig-label + figcaption, .fig-label + .target-caption, .fig-label + p.viz { margin-top: 0 !important; }
+
+/* Target stays still; only the dart moves, then the number appears */
+.board.armed .face, .board.armed.play .face, .board.armed .bullg, .board.armed.play .bullg { transform: none !important; opacity: 1 !important; animation: none !important; transition: none !important; }
