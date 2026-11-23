@@ -636,21 +636,48 @@
   }
   function build() {
     index = [];
-    var sel = "h1, h2, h3, h4, p, li, figcaption, summary .ground-lead, .stat-label, td, th, blockquote";
+    var seen = [];
+    var sel = "h1, h2, h3, h4, h5, p, li, figcaption, summary, blockquote, td, th, dt, dd, .stat-label";
+    var skip = ".search-results, form, .visually-hidden, [aria-hidden='true'], script, style, noscript";
+    function add(el, text) {
+      text = clean(text);
+      if (text.length < 3) return;
+      var isHead = /^H[1-5]$/.test(el.tagName);
+      seen.push(el);
+      index.push({ el: el, text: text, lower: text.toLowerCase(), head: isHead,
+        section: sectionTitle(el), title: isHead ? text : headingFor(el) });
+    }
     document.querySelectorAll("main .page-block").forEach(function (block) {
-      if (block.id === "references" || block.id === "figures") return;
-      block.querySelectorAll(sel).forEach(function (el) {
-        if (el.closest(".search-results, form, .visually-hidden, [aria-hidden='true']")) return;
-        if (el.tagName === "LI" && el.querySelector("p, li")) return;
-        if (el.tagName !== "FIGCAPTION" && el.closest("[role='img']")) return;
-        var text = clean(el.textContent);
-        if (text.length < 3) return;
-        var isHead = /^H[1-4]$/.test(el.tagName);
-        index.push({ el: el, text: text, lower: text.toLowerCase(), head: isHead,
-          section: sectionTitle(el), title: isHead ? text : headingFor(el) });
+      if (block.id === "figures") return;
+      // Charts and diagrams drawn as images: search their description
+      block.querySelectorAll("[role='img'][aria-label]").forEach(function (fig) {
+        if (fig.closest(skip)) return;
+        add(fig, fig.getAttribute("aria-label") + " " + fig.textContent);
       });
+      block.querySelectorAll(sel).forEach(function (el) {
+        if (el.closest(skip)) return;
+        if (el.tagName === "LI" && el.querySelector("p, li, details")) return;
+        if (el.tagName === "SUMMARY" && el.querySelector(sel)) return;
+        if (el.tagName !== "FIGCAPTION" && !el.classList.contains("fig-label") && el.closest("[role='img']")) return;
+        add(el, el.textContent);
+      });
+      // Any remaining text not inside an indexed element
+      var walker = document.createTreeWalker(block, NodeFilter.SHOW_TEXT);
+      var node, parents = [];
+      while ((node = walker.nextNode())) {
+        if (clean(node.nodeValue).length < 3) continue;
+        var el = node.parentElement;
+        if (!el || el.closest(skip) || el.closest("[role='img']")) continue;
+        if (parents.indexOf(el) !== -1) continue;
+        var inIndexed = false;
+        for (var k = 0; k < seen.length; k++) if (seen[k] === el || seen[k].contains(el)) { inIndexed = true; break; }
+        if (inIndexed) continue;
+        parents.push(el);
+        add(el, el.textContent);
+      }
     });
   }
+
   function esc(t) { return t.replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
   function snippet(text, words) {
     var lower = text.toLowerCase(), at = lower.indexOf(words[0]);
