@@ -290,6 +290,40 @@
     io.observe(row);
   })();
 
+  // ---------- Dartboards for the 90 70 90 targets ----------
+  (function () {
+    var row = document.querySelector(".target-row");
+    if (!row) return;
+    var boards = Array.prototype.slice.call(row.querySelectorAll(".board"));
+    if (!boards.length || !("IntersectionObserver" in window)) return;
+    var run = 0;
+    function count(b, token, delay) {
+      var el = b.querySelector(".board-num"), target = +b.getAttribute("data-target"), start = null;
+      setTimeout(function () {
+        function tick(t) {
+          if (token !== run) return;
+          if (start === null) start = t;
+          var k = Math.min(1, (t - start) / 900), e = 1 - Math.pow(1 - k, 3);
+          el.textContent = Math.round(target * e) + "%";
+          if (k < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      }, delay);
+    }
+    boards.forEach(function (b) { b.classList.add("armed"); });
+    new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          var token = ++run;
+          boards.forEach(function (b, i) {
+            b.querySelector(".board-num").textContent = "0%";
+            setTimeout(function () { if (token === run) { b.classList.add("play"); count(b, token, 550); } }, i * 350);
+          });
+        } else { run++; boards.forEach(function (b) { b.classList.remove("play"); }); }
+      });
+    }, { threshold: 0.5 }).observe(row);
+  })();
+
   // ---------- People figure: 9 in 10 cannot access radiotherapy ----------
   (function () {
     var rows = document.querySelectorAll(".people-row");

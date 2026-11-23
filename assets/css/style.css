@@ -991,3 +991,32 @@ html[data-palette="cvd"][data-theme="dark"] { --c-aim: #56b4e9; --c-aim-soft: #1
 .target-row .target-bar { display: none !important; }
 .target-row .stat { margin-bottom: 0.9rem !important; }
 .target-row .stat + p { margin-top: 0 !important; }
+
+/* 90-70-90 as dartboards: the world's targets */
+.target-row .board { position: relative; width: 168px; max-width: 100%; aspect-ratio: 1; margin: 0.4rem 0 1.1rem; }
+.target-row .board svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.board .ring { stroke: color-mix(in srgb, var(--c-aim) 45%, transparent); stroke-width: 1; }
+.board .r1, .board .r3 { fill: var(--c-aim-soft); }
+.board .r2 { fill: var(--bg); }
+.board .spokes line { stroke: color-mix(in srgb, var(--c-aim) 22%, transparent); stroke-width: 1; }
+.board .bull { fill: var(--c-aim); }
+.board .ring, .board .spokes, .board .bull { transform-origin: 100px 100px; transition: transform 0.6s cubic-bezier(.2,.8,.2,1), opacity 0.6s ease; }
+.board-num { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 1.55rem; letter-spacing: -0.01em; color: var(--bg); font-variant-numeric: tabular-nums; transition: opacity 0.4s ease; }
+.board.armed .ring, .board.armed .spokes { transform: scale(0.6); opacity: 0; }
+.board.armed .bull { transform: scale(0); }
+.board.armed .board-num { opacity: 0; }
+.board.armed.play .ring, .board.armed.play .spokes, .board.armed.play .bull { transform: none; opacity: 1; }
+.board.armed.play .board-num { opacity: 1; }
+.board.armed.play .r2 { transition-delay: 0.12s; } .board.armed.play .r3 { transition-delay: 0.24s; }
+.board.armed.play .spokes { transition-delay: 0.3s; } .board.armed.play .bull { transition-delay: 0.42s; }
+.board.armed.play .board-num { transition-delay: 0.6s; }
+.target-row li:hover .bull { transform: scale(1.06); }
+@media (max-width: 560px) { .target-row .board { width: 150px; } }
+
+/* Diagrams span the full text column */
+.target-row .board { width: 100%; container-type: inline-size; }
+.board-num { font-size: 16cqw; }
+.people-row { justify-content: space-between; gap: 0; }
+.people-row .human { width: auto; flex: 0 1 44px; }
+@media (max-width: 560px) { .target-row .board { width: 70%; } .people-row .human { flex-basis: 28px; } }
+@media (max-width: 560px) { .target-row .board { width: 180px; } }
