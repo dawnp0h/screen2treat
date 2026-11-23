@@ -1128,3 +1128,4 @@ html[data-palette="cvd"][data-theme="dark"] { --dart-red: #77736d; --dart-green:
 .board.armed .bullg { transform: none; }
 .board-num { font-size: 16cqw; }
 .board-num { font-size: 19cqw; }
+.board-num { font-family: var(--sans); font-weight: 400; font-size: 16cqw; letter-spacing: 0; }
