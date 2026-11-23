@@ -805,3 +805,14 @@ document.addEventListener("click", function (e) {
     navigator.clipboard.writeText(text).then(done, fallback);
   } else { fallback(); }
 });
+
+/* Elimination goal chart animation */
+(function () {
+  var charts = document.querySelectorAll(".goal-chart");
+  if (!charts.length) return;
+  if (!("IntersectionObserver" in window)) { charts.forEach(function (c) { c.classList.add("play"); }); return; }
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("play"); io.unobserve(e.target); } });
+  }, { threshold: 0.5 });
+  charts.forEach(function (c) { io.observe(c); });
+})();

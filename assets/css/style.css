@@ -909,3 +909,22 @@ h1.chat.chat-in .bubble:last-child::after { right: auto; left: -0.32em; backgrou
 .pathway-note { margin: 0.5rem 0 2.25rem; }
 .current-section { max-width: 24rem; overflow: hidden; } .current-section .cs-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; } @media (max-width: 720px) { .current-section { max-width: 12rem; } }
 .current-section { max-width: 15rem; } .pathway-note { margin: 2rem 0 2.5rem; }
+
+/* Elimination goal chart: 4 is the goal, anything beyond is excess */
+.goal-chart .gc-track { position: relative; height: 16px; margin-top: 3rem; border-radius: 4px; background: color-mix(in srgb, var(--text) 5%, transparent); }
+.goal-chart .gc-zone { position: absolute; left: 0; top: -10px; bottom: -10px; background: #e4f1e6; border-radius: 4px; }
+.goal-chart .gc-zone-label { position: absolute; left: 0.4rem; bottom: calc(100% + 0.3rem); font-family: var(--sans); font-size: 0.72rem; color: #2e7d32; white-space: nowrap; letter-spacing: 0.04em; text-transform: uppercase; }
+.goal-chart .gc-ok, .goal-chart .gc-over { position: absolute; top: 0; bottom: 0; transform-origin: 0 50%; transform: scaleX(0); }
+.goal-chart .gc-ok { left: 0; background: #2e7d32; border-radius: 4px 0 0 4px; transition: transform 0.9s cubic-bezier(0.25, 0.8, 0.3, 1); }
+.goal-chart .gc-over { background: #c62828; border-radius: 0 4px 4px 0; transition: transform 1.6s cubic-bezier(0.25, 0.8, 0.3, 1) 0.9s; }
+.goal-chart .gc-over-label { position: absolute; right: 0; top: calc(100% + 0.45rem); font-family: var(--sans); font-size: 0.78rem; color: #c62828; white-space: nowrap; opacity: 0; transition: opacity 0.4s ease 2.4s; }
+.goal-chart .gc-line { position: absolute; top: -1.9rem; bottom: -14px; width: 0; border-left: 2px solid var(--text); z-index: 2; }
+.goal-chart .gc-line-label { position: absolute; left: 0.45rem; top: -0.2rem; font-family: var(--sans); font-size: 0.82rem; font-weight: 500; color: var(--text); white-space: nowrap; }
+.goal-chart .gc-now { position: absolute; top: -1.6rem; width: 0; opacity: 0; transition: opacity 0.4s ease 2.4s; }
+.goal-chart .gc-now-label { position: absolute; transform: translateX(-50%); font-family: var(--sans); font-size: 0.82rem; font-weight: 500; color: #c62828; }
+.goal-chart.play .gc-ok, .goal-chart.play .gc-over { transform: scaleX(1); }
+.goal-chart.play .gc-over-label, .goal-chart.play .gc-now { opacity: 1; }
+.goal-chart .thr-axis { margin-top: 1.9rem; }
+.goal-chart .gc-key { display: flex; gap: 1.25rem; margin-top: 0.6rem; font-family: var(--sans); font-size: 0.78rem; color: var(--muted); }
+.goal-chart .gc-key i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 0.4rem; vertical-align: -1px; }
+.goal-chart .k-ok { background: #2e7d32; } .goal-chart .k-over { background: #c62828; }
