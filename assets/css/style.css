@@ -1145,3 +1145,4 @@ html[data-palette="cvd"][data-theme="dark"] { --dart-red: #77736d; --dart-green:
 #response .model + .model { margin-top: 2.25rem; }
 .board-num { font-size: 19cqw; }
 .target-row .board { margin-top: 1.4rem !important; margin-bottom: 1.6rem !important; }
+.focus-line { margin-top: 1.25rem !important; }
