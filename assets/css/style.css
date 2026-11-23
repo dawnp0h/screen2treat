@@ -1057,3 +1057,11 @@ html[data-palette="cvd"][data-theme="dark"] { --dart-red: #d08a52; --dart-green:
 .board .d-rim { r: 97.5; }
 .board .face path { stroke: var(--bg); stroke-width: 0.6; }
 .board-num { text-shadow: none; }
+
+/* Greyscale dartboard, red only in the bullseye */
+:root { --dart-black: #5a5650; --dart-cream: #f2efe9; --dart-red: #a7a29a; --dart-green: #c9c5bd; --dart-rim: #5a5650; }
+html[data-theme="dark"] { --dart-black: #2a2826; --dart-cream: #4e4b47; --dart-red: #77736d; --dart-green: #615e59; --dart-rim: #4e4b47; }
+html[data-palette="cvd"] { --dart-red: #a7a29a; --dart-green: #c9c5bd; }
+html[data-palette="cvd"][data-theme="dark"] { --dart-red: #77736d; --dart-green: #615e59; }
+.board .bullg .d-green { fill: var(--dart-red); }
+.board .bull { fill: var(--c-alert) !important; }
