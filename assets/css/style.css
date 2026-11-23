@@ -1132,3 +1132,4 @@ html[data-palette="cvd"][data-theme="dark"] { --dart-red: #77736d; --dart-green:
 /* Smaller targets, centred in full-width columns */
 .target-row .board { width: 70%; }
 @media (max-width: 560px) { .target-row .board { width: 150px; } }
+.board-num { font-size: 13cqw; }
