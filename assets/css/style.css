@@ -1262,3 +1262,5 @@ html[data-theme="dark"] .page-block + .page-block { border-top-color: #55524d; }
 .statement span:nth-child(1) { opacity: 1; animation: none; }
 .statement span:nth-child(2) { animation-delay: 0.3s; }
 .home .cta { animation-delay: 0.95s; }
+.statement span:nth-child(2) { animation-duration: 1s; animation-delay: 0.8s; }
+.home .cta { animation-duration: 1s; animation-delay: 2.1s; }
