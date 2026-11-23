@@ -1219,3 +1219,6 @@ details.sec-drop + blockquote { margin-top: 3rem; }
 #evidence > .section + .section details.sec-drop { border-top: 0; }
 #evidence > .section::before, #evidence > .section::after { display: none !important; }
 #evidence > .section > .container { padding-top: 0 !important; padding-bottom: 0 !important; }
+details.sec-drop > summary h3 { margin: 0 !important; }
+details.delays-drop { margin-top: 3rem; }
+details.delays-drop[open] > .fig-label { margin-bottom: 2rem !important; }
