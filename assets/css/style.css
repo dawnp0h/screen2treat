@@ -969,3 +969,4 @@ html[data-palette="cvd"][data-theme="dark"] { --c-alert: #ff9a4d; --c-good: #56b
 @media (max-width: 720px) { .tools { right: calc(1.75rem + 10px); bottom: calc(1.75rem + 80px); } }
 @media print { .tools { display: none; } }
 html.theme-anim, html.theme-anim body, html.theme-anim * { transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease !important; }
+.goal-chart .gc-now-label { transform: translateX(-100%); white-space: nowrap; }
