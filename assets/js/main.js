@@ -9,7 +9,7 @@
     { href: "#objections", label: "Common objections" },
     { href: "#evidence", label: "Latest evidence" },
     { href: "#path", label: "Global Strategy" },
-    { href: "#response", label: "Screen-to-Treatment Pathway" },
+    { href: "#response", label: "Screen to Treat Pathway" },
     { href: "#about", label: "About" },
     { href: "#get-involved", label: "Get involved" },
     { href: "#contact", label: "Contact" },
