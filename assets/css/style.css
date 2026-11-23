@@ -1199,3 +1199,13 @@ details.tl-more > summary:hover { color: var(--text); }
 details.tl-more > .tl-list { margin: 0.2rem 0 0.9rem; }
 details.tl-more > summary { font-size: 0.98rem; }
 details.refs-drop { margin-top: 0; } details.refs-drop > .ref-list { margin-top: 0.6rem; margin-bottom: 1.2rem; }
+
+/* Section drop-down with a heading as its label */
+details.sec-drop { border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+details.sec-drop > summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.1rem 0; }
+details.sec-drop > summary::-webkit-details-marker { display: none; }
+details.sec-drop > summary h2 { margin: 0 !important; }
+details.sec-drop > summary::after { content: ""; flex: none; width: 10px; height: 10px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(45deg); transition: transform 0.2s ease; margin-right: 6px; }
+details.sec-drop[open] > summary::after { transform: rotate(-135deg); }
+details.sec-drop[open] > summary { padding-bottom: 1.4rem; }
+details.sec-drop > .grid, details.sec-drop > figure { margin-bottom: 2rem; }
