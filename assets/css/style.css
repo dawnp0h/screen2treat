@@ -928,3 +928,15 @@ h1.chat.chat-in .bubble:last-child::after { right: auto; left: -0.32em; backgrou
 .goal-chart .gc-key { display: flex; gap: 1.25rem; margin-top: 0.6rem; font-family: var(--sans); font-size: 0.78rem; color: var(--muted); }
 .goal-chart .gc-key i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 0.4rem; vertical-align: -1px; }
 .goal-chart .k-ok { background: #2e7d32; } .goal-chart .k-over { background: #c62828; }
+
+/* Larger 90-70-90 targets diagram, wider than the text column */
+@media (min-width: 761px) {
+  main ul.target-row { width: min(960px, 92vw); margin-left: calc(50% - min(480px, 46vw)); gap: 2.5rem; }
+}
+.target-row li { border-top-width: 3px; padding-top: 1.2rem; }
+.target-row .target-step { font-size: 0.85rem; margin-bottom: 0.5rem; }
+.target-row .stat { font-size: 4.2rem; margin-bottom: 1rem; }
+.target-row .target-bar { height: 12px; margin-bottom: 1.1rem; }
+.target-row .target-bar span { border-radius: 0 6px 6px 0; }
+.target-row li p:last-child { font-size: 1.1rem; line-height: 1.55; }
+@media (max-width: 760px) { .target-row .stat { font-size: 3.4rem; } }
