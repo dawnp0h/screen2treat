@@ -949,7 +949,7 @@ document.addEventListener("click", function (e) {
     var mins = Math.max(1, Math.round(words / WPM));
     var p = document.createElement("p");
     p.className = "read-time";
-    p.textContent = "Approximately " + mins + " minute" + (mins === 1 ? "" : "s") + " to read";
+    p.textContent = mins + " minute" + (mins === 1 ? "" : "s") + " read";
     eyebrow.insertAdjacentElement("afterend", p);
   });
 })();
