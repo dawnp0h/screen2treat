@@ -779,3 +779,27 @@ document.addEventListener("click", function (e) {
   window.addEventListener("resize", pick);
   pick();
 })();
+
+/* Copy citation button */
+document.addEventListener("click", function (e) {
+  var btn = e.target.closest && e.target.closest(".copy-cite");
+  if (!btn) return;
+  var src = document.getElementById(btn.getAttribute("data-copy"));
+  if (!src) return;
+  var text = src.textContent.trim();
+  function done() {
+    btn.textContent = "Copied";
+    btn.classList.add("done");
+    setTimeout(function () { btn.textContent = "Copy citation"; btn.classList.remove("done"); }, 2000);
+  }
+  function fallback() {
+    var t = document.createElement("textarea");
+    t.value = text; t.setAttribute("readonly", ""); t.style.position = "absolute"; t.style.left = "-9999px";
+    document.body.appendChild(t); t.select();
+    try { document.execCommand("copy"); done(); } catch (err) {}
+    document.body.removeChild(t);
+  }
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(done, fallback);
+  } else { fallback(); }
+});

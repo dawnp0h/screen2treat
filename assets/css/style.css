@@ -894,3 +894,10 @@ h1.chat.chat-in .bubble:last-child::after { right: auto; left: -0.32em; backgrou
 }
 .header-inner .logo.head-logo { margin-right: 0; } .header-inner .logo-wrap { margin-right: 1.5rem; }
 .lead-first { display: block; margin-bottom: 0.9rem; }
+
+/* How to cite */
+.cite-box { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin: 0.75rem 0 1.5rem; padding: 0.9rem 1rem; border: 1px solid var(--rule); border-radius: 6px; background: color-mix(in srgb, var(--text) 3%, transparent); }
+.cite-box .cite-text { margin: 0; font-family: "Courier Prime", ui-monospace, monospace; font-size: 0.9rem; line-height: 1.5; color: var(--text); word-break: break-word; }
+.copy-cite { flex: none; font-family: var(--sans); font-size: 0.8rem; color: var(--text); background: var(--bg); border: 1px solid var(--text); border-radius: 4px; padding: 0.35rem 0.75rem; cursor: pointer; transition: background-color 0.2s ease, color 0.2s ease; }
+.copy-cite:hover, .copy-cite:focus-visible { background: var(--text); color: var(--bg); outline: none; }
+.copy-cite.done { background: var(--text); color: var(--bg); }
