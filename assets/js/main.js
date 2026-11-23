@@ -638,7 +638,7 @@
     index = [];
     var seen = [];
     var sel = "h1, h2, h3, h4, h5, p, li, figcaption, summary, blockquote, td, th, dt, dd, .stat-label";
-    var skip = ".search-results, form, .visually-hidden, [aria-hidden='true'], script, style, noscript";
+    var skip = ".search-results, form, .visually-hidden, .read-time, [aria-hidden='true'], script, style, noscript";
     function add(el, text) {
       text = clean(text);
       if (text.length < 3) return;
@@ -934,5 +934,22 @@ document.addEventListener("click", function (e) {
     }
     window.scrollTo({ top: Math.max(0, target === null ? 0 : target), behavior: "smooth" });
     this.blur();
+  });
+})();
+
+// ---------- Estimated reading time under each section title ----------
+(function () {
+  var WPM = 200;
+  document.querySelectorAll("main .page-block").forEach(function (block) {
+    var eyebrow = block.querySelector(".page-header .eyebrow");
+    if (!eyebrow || block.querySelector(".read-time")) return;
+    var copy = block.cloneNode(true);
+    copy.querySelectorAll("script, style, svg, [aria-hidden='true'], .read-time, .eyebrow").forEach(function (n) { n.remove(); });
+    var words = (copy.textContent || "").trim().split(/\s+/).filter(function (w) { return /[A-Za-z0-9]/.test(w); }).length;
+    var mins = Math.max(1, Math.round(words / WPM));
+    var p = document.createElement("p");
+    p.className = "read-time";
+    p.textContent = "Approximately " + mins + " minute" + (mins === 1 ? "" : "s") + " to read";
+    eyebrow.insertAdjacentElement("afterend", p);
   });
 })();

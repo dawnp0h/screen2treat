@@ -1264,3 +1264,6 @@ html[data-theme="dark"] .page-block + .page-block { border-top-color: #55524d; }
 .home .cta { animation-delay: 0.95s; }
 .statement span:nth-child(2) { animation-duration: 1s; animation-delay: 0.8s; }
 .home .cta { animation-duration: 1s; animation-delay: 2.1s; }
+
+/* Estimated reading time below each section title */
+.read-time { font-family: var(--sans); font-size: 0.78rem; color: var(--muted); margin: 0.35rem 0 0 !important; letter-spacing: 0.01em; }
