@@ -1065,3 +1065,7 @@ html[data-palette="cvd"] { --dart-red: #a7a29a; --dart-green: #c9c5bd; }
 html[data-palette="cvd"][data-theme="dark"] { --dart-red: #77736d; --dart-green: #615e59; }
 .board .bullg .d-green { fill: var(--dart-red); }
 .board .bull { fill: var(--c-alert) !important; }
+
+/* Target labels centred over each dartboard */
+.target-row .target-step { text-align: center; }
+.target-row .board { margin-left: auto; margin-right: auto; }
