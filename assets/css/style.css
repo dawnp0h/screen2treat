@@ -906,3 +906,4 @@ h1.chat.chat-in .bubble:last-child::after { right: auto; left: -0.32em; backgrou
 .timeline .tl-who::before { content: "Provider · "; color: #9a9a9a; }
 .timeline .tl-list li { margin-bottom: 0.5rem; }
 .timeline p.tl-text + .tl-who { margin-top: 0.4rem; }
+.pathway-note { margin: 0.5rem 0 2.25rem; }
