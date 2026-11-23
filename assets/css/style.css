@@ -970,3 +970,9 @@ html[data-palette="cvd"][data-theme="dark"] { --c-alert: #ff9a4d; --c-good: #56b
 @media print { .tools { display: none; } }
 html.theme-anim, html.theme-anim body, html.theme-anim * { transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease !important; }
 .goal-chart .gc-now-label { transform: translateX(-100%); white-space: nowrap; }
+
+/* 90-70-90 targets shown in the goal colour */
+.target-row li { border-top-color: var(--c-good); }
+.target-row .target-step { color: var(--c-good); }
+.target-row .target-bar { border-left-color: var(--c-good); background: var(--c-good-soft); border-radius: 0 4px 4px 0; }
+.target-row .target-bar span { background: var(--c-good); }
