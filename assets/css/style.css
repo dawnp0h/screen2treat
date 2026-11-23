@@ -1044,3 +1044,7 @@ html[data-palette="cvd"] { --dart-red: #d55e00; --dart-green: #0072b2; }
 .board.armed.play .face { transform: none; opacity: 1; }
 .board.armed.play .bullg { transform: none; transition-delay: 0.45s; }
 .target-row li:hover .bullg { transform: scale(1.05); }
+
+/* Labels and rules in ink, to sit with the dartboards */
+.target-row li { border-top-color: var(--text) !important; }
+.target-row .target-step { color: var(--text) !important; }
