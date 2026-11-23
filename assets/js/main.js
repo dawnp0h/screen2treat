@@ -895,11 +895,13 @@ document.addEventListener("click", function (e) {
   var moon = '<svg class="when-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>';
   var sun = '<svg class="when-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4L6 18M18 6l1.4-1.4"/></svg>';
   var eye = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-6.5 10-6.5S22 12 22 12s-3.6 6.5-10 6.5S2 12 2 12z"/><circle cx="12" cy="12" r="3"/><path d="M12 9v6" /></svg>';
+  var chev = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 15l6-6 6 6"/></svg>';
   var box = document.createElement("div");
   box.className = "tools";
   box.innerHTML =
     '<button type="button" class="tool-btn" id="toggle-theme" aria-pressed="false" aria-label="Night mode" title="Night mode">' + moon + sun + '</button>' +
-    '<button type="button" class="tool-btn" id="toggle-palette" aria-pressed="false" aria-label="Colour-accessible palette" title="Colour-accessible palette">' + eye + '</button>';
+    '<button type="button" class="tool-btn" id="toggle-palette" aria-pressed="false" aria-label="Colour-accessible palette" title="Colour-accessible palette">' + eye + '</button>' +
+    '<button type="button" class="tool-btn" id="section-top" aria-label="Go to top of section" title="Go to top of section">' + chev + '</button>';
   document.body.appendChild(box);
   var tBtn = document.getElementById("toggle-theme"), pBtn = document.getElementById("toggle-palette");
   function sync() {
@@ -920,4 +922,17 @@ document.addEventListener("click", function (e) {
     save("s2t-palette", on ? "cvd" : "default"); sync();
   });
   sync();
+  // Go to the top of the current section, or the previous one if already there
+  document.getElementById("section-top").addEventListener("click", function () {
+    var h = document.querySelector(".site-header");
+    var off = (h ? h.getBoundingClientRect().height : 0) + 8;
+    var blocks = Array.prototype.slice.call(document.querySelectorAll("main .page-block"));
+    var target = null;
+    for (var i = blocks.length - 1; i >= 0; i--) {
+      var top = blocks[i].getBoundingClientRect().top + window.pageYOffset - off;
+      if (top < window.pageYOffset - 40) { target = top; break; }
+    }
+    window.scrollTo({ top: Math.max(0, target === null ? 0 : target), behavior: "smooth" });
+    this.blur();
+  });
 })();
