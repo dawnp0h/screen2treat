@@ -1222,3 +1222,10 @@ details.sec-drop + blockquote { margin-top: 3rem; }
 details.sec-drop > summary h3 { margin: 0 !important; }
 details.delays-drop { margin-top: 3rem; }
 details.delays-drop[open] > .fig-label { margin-bottom: 2rem !important; }
+
+/* Goal chart: full goal wording above, 2022 value below the bar */
+.goal-chart .gc-track { margin-top: 4.2rem; }
+.goal-chart .gc-line { top: -3.1rem; }
+.goal-chart .gc-line-label { white-space: normal; width: max-content; max-width: min(19rem, 62vw); line-height: 1.35; }
+.goal-chart .gc-now { top: calc(100% + 0.5rem); }
+.goal-chart .thr-axis { margin-top: 2.6rem; }
