@@ -1173,3 +1173,9 @@ html[data-palette="cvd"][data-theme="dark"] { --dart-red: #77736d; --dart-green:
 /* Target stays still; only the dart moves, then the number appears */
 .board.armed .face, .board.armed.play .face, .board.armed .bullg, .board.armed.play .bullg { transform: none !important; opacity: 1 !important; animation: none !important; transition: none !important; }
 .fig-sub { margin: 0.9rem 0 1.2rem !important; } #response .flow:has(+ .fig-sub) { margin-bottom: 0 !important; }
+
+/* Back-to-top button doubles as a reading progress ring */
+.to-top { position: fixed; }
+.to-top .to-top-ring { position: absolute; inset: 0; width: 100%; height: 100%; transform: rotate(-90deg); pointer-events: none; }
+.to-top .ring-track { fill: none; stroke: var(--rule); stroke-width: 4; }
+.to-top .ring-fill { fill: none; stroke: var(--text); stroke-width: 4; stroke-linecap: round; stroke-dasharray: 100; stroke-dashoffset: 100; transition: stroke-dashoffset 0.1s linear; }
