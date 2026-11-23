@@ -816,3 +816,37 @@ document.addEventListener("click", function (e) {
   }, { threshold: 0.5 });
   charts.forEach(function (c) { io.observe(c); });
 })();
+
+/* Night mode and colour-accessible palette toggles */
+(function () {
+  var root = document.documentElement;
+  function save(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+  var moon = '<svg class="when-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>';
+  var sun = '<svg class="when-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4L6 18M18 6l1.4-1.4"/></svg>';
+  var eye = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-6.5 10-6.5S22 12 22 12s-3.6 6.5-10 6.5S2 12 2 12z"/><circle cx="12" cy="12" r="3"/><path d="M12 9v6" /></svg>';
+  var box = document.createElement("div");
+  box.className = "tools";
+  box.innerHTML =
+    '<button type="button" class="tool-btn" id="toggle-theme" aria-pressed="false" aria-label="Night mode" title="Night mode">' + moon + sun + '</button>' +
+    '<button type="button" class="tool-btn" id="toggle-palette" aria-pressed="false" aria-label="Colour-accessible palette" title="Colour-accessible palette">' + eye + '</button>';
+  document.body.appendChild(box);
+  var tBtn = document.getElementById("toggle-theme"), pBtn = document.getElementById("toggle-palette");
+  function sync() {
+    tBtn.setAttribute("aria-pressed", root.getAttribute("data-theme") === "dark" ? "true" : "false");
+    pBtn.setAttribute("aria-pressed", root.getAttribute("data-palette") === "cvd" ? "true" : "false");
+  }
+  function animate() { root.classList.add("theme-anim"); setTimeout(function () { root.classList.remove("theme-anim"); }, 400); }
+  tBtn.addEventListener("click", function () {
+    animate();
+    var dark = root.getAttribute("data-theme") !== "dark";
+    if (dark) root.setAttribute("data-theme", "dark"); else root.removeAttribute("data-theme");
+    save("s2t-theme", dark ? "dark" : "light"); sync();
+  });
+  pBtn.addEventListener("click", function () {
+    animate();
+    var on = root.getAttribute("data-palette") !== "cvd";
+    if (on) root.setAttribute("data-palette", "cvd"); else root.removeAttribute("data-palette");
+    save("s2t-palette", on ? "cvd" : "default"); sync();
+  });
+  sync();
+})();
