@@ -1097,3 +1097,11 @@ html[data-palette="cvd"][data-theme="dark"] { --dart-red: #77736d; --dart-green:
 .board-num { transition: opacity 0.35s ease, transform 0.35s ease; }
 .board.armed .board-num { transform: scale(0.85); }
 .board.armed.play .board-num { transform: none; transition-delay: 1.65s; }
+
+/* Bigger numbers, quicker sequence */
+.board-num { font-size: 18cqw; }
+.board .face, .board .bullg { transition-duration: 0.45s; }
+.board.armed.play .bullg { transition-delay: 0.22s; }
+.board.armed.play .dart { animation: dartIn 0.7s cubic-bezier(.4,0,.6,1) 0.3s both; }
+.board.armed.play .face { animation: dartHit 0.3s ease-out 0.52s both; }
+.board.armed.play .board-num { transition-duration: 0.25s; transition-delay: 0.85s; }
