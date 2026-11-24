@@ -1356,3 +1356,4 @@ details.gl-drop { border-bottom: 1px solid var(--rule) !important; }
 /* Landing: About link above Read the case */
 .cta .cta-about { display: inline-block; margin-bottom: 0.9rem; }
 .cta .cta-about + a { display: table; }
+details.gl-drop { margin-bottom: 0 !important; } details.gl-drop + details.gl-drop { border-top: 0 !important; } details.gl-drop + h3 { margin-top: 3rem !important; }
