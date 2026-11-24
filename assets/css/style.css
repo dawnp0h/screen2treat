@@ -1274,3 +1274,12 @@ html[data-theme="dark"] .page-block + .page-block { border-top-color: #55524d; }
 .target-row .target-step { font-size: 0.86rem !important; margin: 0 !important; line-height: 1.2; }
 .target-row .board { margin-top: 1.5rem !important; }
 .target-row .board { margin-top: calc(1.5rem + 2px) !important; }
+
+/* Landing: second line, call to action and logo dots arrive together */
+.statement span:nth-child(2) { animation-duration: 1s; animation-delay: 0.8s; }
+.home .cta { animation-duration: 1s; animation-delay: 0.8s; }
+@keyframes dotIn { from { opacity: 0; transform: translateX(-0.35em) scale(0.5); } to { opacity: 1; transform: none; } }
+.head-logo .logo-dots i { opacity: 0; animation: dotIn 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+.head-logo .logo-dots i:nth-child(1) { animation-delay: 0.8s; }
+.head-logo .logo-dots i:nth-child(2) { animation-delay: 1.05s; }
+.head-logo .logo-dots i:nth-child(3) { animation-delay: 1.3s; }
