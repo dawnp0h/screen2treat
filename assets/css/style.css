@@ -1325,3 +1325,4 @@ details.model-drop > summary { padding: 0.9rem 0; }
 details.model-drop[open] { padding-bottom: 1.2rem; }
 #response .models .model { border-top: 0 !important; padding-top: 0 !important; margin-top: 0 !important; } #response .models .model + .model details.model-drop { border-top: 0; }
 #response .models { gap: 0 !important; row-gap: 0 !important; }
+@keyframes dotJump { 0%, 100% { transform: none; } 45% { transform: translateY(-0.4em); } 75% { transform: translateY(0.05em); } }
