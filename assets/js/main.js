@@ -5,12 +5,12 @@
   var SITE_NAME = "Screen to Treat";
 
   var NAV = [
+    { href: "#about", label: "About" },
     { href: "#the-case", label: "The case" },
     { href: "#objections", label: "Common objections" },
     { href: "#evidence", label: "Latest evidence" },
     { href: "#path", label: "WHO 90-70-90" },
     { href: "#response", label: "Screen to Treat Pathway" },
-    { href: "#about", label: "About" },
     { href: "#get-involved", label: "Get involved" },
     { href: "#contact", label: "Contact" },
     { href: "#references", label: "References", menu: false },
