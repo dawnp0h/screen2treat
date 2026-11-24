@@ -1344,3 +1344,5 @@ details.model-drop .ground-body > .flow:first-child { margin-top: 0.6rem !import
 #response figure.models { margin-bottom: 0 !important; }
 #response figure.models + details.pathway-drop { margin-top: 0 !important; border-top: 0 !important; }
 details.pathway-drop + p { margin-top: 2rem; }
+.gl-drop { border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); margin-bottom: 3rem !important; } .gl-drop .ground-body p { color: var(--text); }
+details.gl-drop { border-bottom: 1px solid var(--rule) !important; }
