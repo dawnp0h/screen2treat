@@ -1357,3 +1357,5 @@ details.gl-drop { border-bottom: 1px solid var(--rule) !important; }
 .cta .cta-about { display: inline-block; margin-bottom: 0.9rem; }
 .cta .cta-about + a { display: table; }
 details.gl-drop { margin-bottom: 0 !important; } details.gl-drop + details.gl-drop { border-top: 0 !important; } details.gl-drop + h3 { margin-top: 3rem !important; }
+.impact-line + details.gl-drop { margin-top: 3rem !important; }
+#path .container > h3.tl-heading:first-child { margin-top: 0 !important; }
