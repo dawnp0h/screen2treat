@@ -1301,3 +1301,6 @@ a.cite-link { color: inherit; text-decoration: none; border-bottom: 1px dotted c
 a.cite-link:hover { color: var(--text); border-bottom-style: solid; }
 @keyframes refFlash { 0% { background: transparent; } 25% { background: color-mix(in srgb, var(--text) 12%, transparent); } 100% { background: transparent; } }
 .ref-list li.ref-flash { animation: refFlash 1.6s ease-out 1; border-radius: 4px; }
+/* Undo jump button */
+.tool-btn:disabled { opacity: 0.35; cursor: default; }
+.tool-btn:disabled:hover { border-color: var(--rule); color: inherit; }
