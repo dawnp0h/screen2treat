@@ -1283,3 +1283,9 @@ html[data-theme="dark"] .page-block + .page-block { border-top-color: #55524d; }
 .head-logo .logo-dots i:nth-child(1) { animation-delay: 0.8s; }
 .head-logo .logo-dots i:nth-child(2) { animation-delay: 1.05s; }
 .head-logo .logo-dots i:nth-child(3) { animation-delay: 1.3s; }
+/* After appearing, the dots jump once in a wave */
+@keyframes dotJump { 0%, 100% { transform: none; } 40% { transform: translateY(-0.45em); } 70% { transform: translateY(0.05em); } }
+.head-logo .logo-dots i { animation: dotIn 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards, dotJump 0.5s ease-in-out forwards; }
+.head-logo .logo-dots i:nth-child(1) { animation-delay: 0.8s, 1.85s; }
+.head-logo .logo-dots i:nth-child(2) { animation-delay: 1.05s, 1.97s; }
+.head-logo .logo-dots i:nth-child(3) { animation-delay: 1.3s, 2.09s; }
