@@ -1327,3 +1327,20 @@ details.model-drop[open] { padding-bottom: 1.2rem; }
 #response .models { gap: 0 !important; row-gap: 0 !important; }
 @keyframes dotJump { 0%, 100% { transform: none; } 45% { transform: translateY(-0.4em); } 75% { transform: translateY(0.05em); } }
 @keyframes dotJump { 0%, 100% { transform: none; } 45% { transform: translateY(-2px); } 75% { transform: translateY(0.5px); } }
+
+/* Model and pathway drop-downs styled like the ethical grounds */
+details.model-drop, details.pathway-drop { border-top: 1px solid var(--rule); padding: 1.8rem 0; margin: 0; }
+details.model-drop { border-bottom: 0; }
+.models .model:last-child details.model-drop { border-bottom: 1px solid var(--rule); }
+details.pathway-drop { border-bottom: 1px solid var(--rule); margin-top: 2.5rem; }
+details.model-drop > summary h3, details.pathway-drop > summary h3 { font-size: 1.6rem; font-weight: 400; line-height: 1.2; margin: 0 0 0.4rem !important; }
+details.model-drop > summary, details.pathway-drop > summary { padding: 0 2.5rem 0 0 !important; display: block; }
+details.model-drop > summary::after, details.pathway-drop > summary::after { content: none !important; }
+details.model-drop .ground-body > .flow:first-child { margin-top: 0.6rem !important; }
+.models details.model-drop > summary h3 { color: var(--text) !important; font-family: var(--serif) !important; }
+.models details.model-drop > summary .ground-lead { font-family: var(--serif) !important; font-size: 19px !important; line-height: 1.7 !important; color: var(--text) !important; margin: 0 !important; }
+#response .models .model + .model details.model-drop { border-top: 1px solid var(--rule) !important; }
+.models { margin-bottom: 0 !important; }
+#response figure.models { margin-bottom: 0 !important; }
+#response figure.models + details.pathway-drop { margin-top: 0 !important; border-top: 0 !important; }
+details.pathway-drop + p { margin-top: 2rem; }
