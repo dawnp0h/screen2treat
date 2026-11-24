@@ -1042,3 +1042,19 @@ document.addEventListener("click", function (e) {
   });
   sync();
 })();
+
+// ---------- Quick tooltips for the floating buttons ----------
+(function () {
+  document.querySelectorAll(".tools .tool-btn, .to-top").forEach(function (b) {
+    var tip = b.getAttribute("title") || b.getAttribute("aria-label");
+    if (!tip) return;
+    b.setAttribute("data-tip", tip);
+    b.removeAttribute("title");
+  });
+  var undo = document.getElementById("undo-jump");
+  if (undo) {
+    var sync = function () { undo.setAttribute("data-tip", undo.disabled ? "Nothing to go back to yet" : "Back to where you were"); };
+    new MutationObserver(sync).observe(undo, { attributes: true, attributeFilter: ["disabled"] });
+    sync();
+  }
+})();
