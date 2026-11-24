@@ -954,3 +954,65 @@ document.addEventListener("click", function (e) {
     eyebrow.insertAdjacentElement("afterend", p);
   });
 })();
+
+// ---------- Link in-text citations to the reference list ----------
+(function () {
+  var list = document.querySelector(".ref-list");
+  if (!list) return;
+  var ALIAS = { "who": "world health organization" };
+  function norm(t) { return (t || "").toLowerCase().replace(/[’']/g, "'").replace(/\s+/g, " ").trim(); }
+  var refs = [];
+  list.querySelectorAll(":scope > li").forEach(function (li, i) {
+    var txt = li.textContent.replace(/\s+/g, " ").trim();
+    var m = txt.match(/^(.*?)\s\((\d{4}[a-z]?|n\.d\.[a-z]?)\)/);
+    if (!m) return;
+    li.id = li.id || "ref-" + (i + 1);
+    refs.push({ li: li, authors: norm(m[1]), year: m[2].toLowerCase() });
+  });
+  function find(author, year) {
+    var full = norm(author);
+    for (var j = 0; j < refs.length; j++) if (refs[j].year === year.toLowerCase() && refs[j].authors.indexOf(full) === 0) return refs[j].li;
+    var a = full.replace(/ et al\.?$/, "").replace(/ and .*$/, "");
+    a = ALIAS[a] || a;
+    year = year.toLowerCase();
+    for (var k = 0; k < refs.length; k++) {
+      var r = refs[k];
+      if (r.year !== year) continue;
+      if (r.authors.indexOf(a) === 0) return r.li;
+    }
+    return null;
+  }
+  window.__unmatchedCites = [];
+  document.querySelectorAll("main .cite").forEach(function (span) {
+    if (span.closest(".ref-list")) return;
+    var raw = span.textContent.trim();
+    var inner = raw.replace(/^\(/, "").replace(/\)$/, "");
+    var parts = inner.split(/;\s*/);
+    var lastAuthor = "";
+    var html = parts.map(function (part) {
+      var m = part.match(/^(.*?),?\s*(\d{4}[a-z]?|n\.d\.[a-z]?)$/);
+      if (!m) { window.__unmatchedCites.push(part); return part; }
+      var author = m[1].replace(/,\s*$/, "").trim() || lastAuthor;
+      lastAuthor = author;
+      var li = find(author, m[2]);
+      if (!li) { window.__unmatchedCites.push(part); return part; }
+      return '<a class="cite-link" href="#' + li.id + '">' + part + "</a>";
+    }).join("; ");
+    span.innerHTML = (raw.charAt(0) === "(" ? "(" : "") + html + (raw.slice(-1) === ")" ? ")" : "");
+  });
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest("a.cite-link");
+    if (!a) return;
+    var li = document.getElementById(a.getAttribute("href").slice(1));
+    if (!li) return;
+    e.preventDefault();
+    var d = li.closest("details");
+    if (d && !d.open) d.open = true;
+    var h = document.querySelector(".site-header");
+    var off = (h ? h.getBoundingClientRect().height : 0) + 24;
+    window.scrollTo({ top: li.getBoundingClientRect().top + window.pageYOffset - off, behavior: "smooth" });
+    li.classList.remove("ref-flash");
+    setTimeout(function () { void li.offsetWidth; li.classList.add("ref-flash"); }, 450);
+    setTimeout(function () { li.classList.remove("ref-flash"); }, 2400);
+  });
+})();
