@@ -1346,3 +1346,10 @@ details.model-drop .ground-body > .flow:first-child { margin-top: 0.6rem !import
 details.pathway-drop + p { margin-top: 2rem; }
 .gl-drop { border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); margin-bottom: 3rem !important; } .gl-drop .ground-body p { color: var(--text); }
 details.gl-drop { border-bottom: 1px solid var(--rule) !important; }
+
+/* Landing page: the logo dots bounce every 3 seconds */
+.head-logo.dots-ready .logo-dots i { opacity: 1; animation: none; }
+.head-logo.dots-bounce .logo-dots i { opacity: 1; animation: dotJump 0.55s ease-in-out both; }
+.head-logo.dots-bounce .logo-dots i:nth-child(1) { animation-delay: 0s; }
+.head-logo.dots-bounce .logo-dots i:nth-child(2) { animation-delay: 0.18s; }
+.head-logo.dots-bounce .logo-dots i:nth-child(3) { animation-delay: 0.36s; }

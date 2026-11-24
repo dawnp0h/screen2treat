@@ -1057,3 +1057,24 @@ document.addEventListener("click", function (e) {
     sync();
   }
 })();
+
+// ---------- Logo dots bounce every 3 seconds while the landing page is in view ----------
+(function () {
+  var logo = document.querySelector(".head-logo");
+  var home = document.getElementById("home");
+  if (!logo || !home || !("IntersectionObserver" in window)) return;
+  if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  var visible = false, timer = null;
+  setTimeout(function () { logo.classList.add("dots-ready"); }, 3000);
+  function bounce() {
+    if (!visible) return;
+    logo.classList.remove("dots-bounce");
+    void logo.offsetWidth;
+    logo.classList.add("dots-bounce");
+  }
+  setTimeout(function () { new IntersectionObserver(function (entries) {
+    visible = entries[0].isIntersecting && entries[0].intersectionRatio > 0.5;
+    if (visible && !timer) { timer = setInterval(bounce, 3000); }
+    if (!visible && timer) { clearInterval(timer); timer = null; logo.classList.remove("dots-bounce"); }
+  }, { threshold: [0, 0.5, 1] }).observe(home); }, 2500);
+})();
