@@ -718,8 +718,7 @@
   }
   function go(i) {
     var it = results[i]; if (!it) return;
-    var d = it.el.closest("details");
-    if (d && !d.open) d.open = true;
+    for (var d = it.el.closest("details"); d; d = d.parentElement && d.parentElement.closest("details")) d.open = true;
     var h = document.querySelector(".site-header");
     var y = it.el.getBoundingClientRect().top + window.pageYOffset - (h ? h.getBoundingClientRect().height : 0) - 24;
     var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce) and (max-width: 0px)").matches;

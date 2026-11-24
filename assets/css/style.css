@@ -1317,3 +1317,11 @@ a.cite-link:hover { color: var(--text); border-bottom-style: solid; }
 /* Go back button shows a not-allowed cursor while there is nowhere to go back to */
 #undo-jump:disabled { cursor: not-allowed; pointer-events: auto; }
 .tool-btn:disabled { opacity: 1 !important; } .tool-btn:disabled svg { opacity: 0.35; }
+/* Model drop-downs */
+details.model-drop > summary .model-name { margin: 0 !important; }
+details.model-drop > summary { padding: 0.9rem 0; }
+.model + .model details.model-drop { border-top: 0; }
+#response .model + .model { margin-top: 0 !important; }
+details.model-drop[open] { padding-bottom: 1.2rem; }
+#response .models .model { border-top: 0 !important; padding-top: 0 !important; margin-top: 0 !important; } #response .models .model + .model details.model-drop { border-top: 0; }
+#response .models { gap: 0 !important; row-gap: 0 !important; }
