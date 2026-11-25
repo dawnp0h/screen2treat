@@ -399,6 +399,7 @@
       var el = document.getElementById(hash.slice(1));
       var d = el && (el.matches("details.ground") ? el : el.querySelector("details.ground"));
       if (d) d.open = true;
+      for (var p = el && el.closest("details"); p; p = p.parentElement && p.parentElement.closest("details")) p.open = true;
     }
     openFor(location.hash);
     window.addEventListener("hashchange", function () { openFor(location.hash); });

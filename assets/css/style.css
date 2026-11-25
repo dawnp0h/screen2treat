@@ -1359,3 +1359,4 @@ details.gl-drop { border-bottom: 1px solid var(--rule) !important; }
 details.gl-drop { margin-bottom: 0 !important; } details.gl-drop + details.gl-drop { border-top: 0 !important; } details.gl-drop + h3 { margin-top: 3rem !important; }
 .impact-line + details.gl-drop { margin-top: 3rem !important; }
 #path .container > h3.tl-heading:first-child { margin-top: 0 !important; }
+ol.criteria + .fig-label { margin: 1.6rem 0 2.4rem !important; }
