@@ -1360,3 +1360,4 @@ details.gl-drop { margin-bottom: 0 !important; } details.gl-drop + details.gl-dr
 .impact-line + details.gl-drop { margin-top: 3rem !important; }
 #path .container > h3.tl-heading:first-child { margin-top: 0 !important; }
 ol.criteria + .fig-label { margin: 1.6rem 0 2.4rem !important; }
+.foot-logo { display: inline-flex; align-items: center; vertical-align: baseline; }
