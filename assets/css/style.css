@@ -1361,3 +1361,4 @@ details.gl-drop { margin-bottom: 0 !important; } details.gl-drop + details.gl-dr
 #path .container > h3.tl-heading:first-child { margin-top: 0 !important; }
 ol.criteria + .fig-label { margin: 1.6rem 0 2.4rem !important; }
 .site-footer .foot-logo { display: inline-flex; align-items: center; margin-bottom: 1.5rem; color: var(--text); font-size: 0.85rem; }
+.impact-line + h3.goal-h { margin-top: 3.5rem !important; }
