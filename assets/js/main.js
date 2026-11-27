@@ -62,7 +62,7 @@
       LEGAL.map(function (item) { return '<li><a href="' + item.href + '">' + item.label + "</a></li>"; }).join("") +
       "      </ul></div>" +
       "    </div>" +
-      '    <div class="footer-bottom">© ' + new Date().getFullYear() + " <span class=\"logo foot-logo\">" + SITE_NAME + '<span class="logo-dots" aria-hidden="true"><i></i><i></i><i></i></span></span>' +
+      '    <div class="footer-bottom">© ' + new Date().getFullYear() + " <span class=\"brand\">" + SITE_NAME + "</span>" +
       ". Educational content, not medical advice.</div>" +
       "  </div>" +
       "</footer>";
