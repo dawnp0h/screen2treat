@@ -52,6 +52,7 @@
     footerSlot.outerHTML =
       '<footer class="site-footer">' +
       '  <div class="container">' +
+      '    <a class="logo foot-logo" href="#home" aria-label="' + SITE_NAME + ', home">' + SITE_NAME + '<span class="logo-dots" aria-hidden="true"><i></i><i></i><i></i></span></a>' +
       '    <div class="footer-grid">' +
       "      <div><strong>" + SITE_NAME + "</strong>" +
       "        <p>The ethical case for eliminating cervical cancer.</p></div>" +
