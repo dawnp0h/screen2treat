@@ -1366,3 +1366,4 @@ ol.criteria + .fig-label { margin: 1.6rem 0 2.4rem !important; }
 #objections .objection summary h3 { font-size: 1.45rem !important; line-height: 1.35 !important; padding-right: 2.5rem; }
 #objections .objection .ground-toggle { top: 50% !important; transform: translateY(-50%); }
 #objections .objection .ground-body { padding-bottom: 1.2rem; }
+.terms-line { display: block; margin-top: 0.9rem; }
