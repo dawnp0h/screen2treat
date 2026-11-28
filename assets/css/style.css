@@ -1368,3 +1368,9 @@ ol.criteria + .fig-label { margin: 1.6rem 0 2.4rem !important; }
 #objections .objection .ground-body { padding-bottom: 1.2rem; }
 .terms-line { display: block; margin-top: 0.9rem; }
 details.sec-drop + details.delays-drop { margin-top: 0 !important; border-top: 0 !important; }
+#response details.pathway-drop { margin-top: 2.5rem !important; }
+#response details.pathway-drop + details.model-drop { border-top: 0 !important; }
+#response details.model-drop + details.model-drop { border-bottom: 1px solid var(--rule); }
+#response details.model-drop + details.model-drop + p { margin-top: 2rem; }
+#response details.pathway-drop > summary h3 { color: var(--text) !important; }
+#response details.pathway-drop > summary .ground-lead, #response details.pathway-drop > summary .ground-lead strong { font-family: var(--serif, Newsreader, Georgia, serif) !important; font-size: 1.1875rem !important; color: var(--text) !important; }
