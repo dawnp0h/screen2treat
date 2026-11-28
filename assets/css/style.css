@@ -1379,3 +1379,4 @@ details.sec-drop + details.delays-drop { margin-top: 0 !important; border-top: 0
 #response .fig-label + p.step-note { margin-top: 3rem !important; }
 .inline-icon { display: inline-flex; width: 1.3em; height: 1.3em; align-items: center; justify-content: center; border: 1px solid var(--rule); border-radius: 50%; vertical-align: -0.22em; margin: 0 0.15em; } .inline-icon svg { width: 0.9em; height: 0.9em; }
 .inline-icon { color: var(--text); }
+.home .cta a { display: table; margin-bottom: 0.9rem; } .home .cta small { margin-top: 0; }
