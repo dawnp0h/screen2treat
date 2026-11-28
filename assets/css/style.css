@@ -1367,3 +1367,4 @@ ol.criteria + .fig-label { margin: 1.6rem 0 2.4rem !important; }
 #objections .objection .ground-toggle { top: 50% !important; transform: translateY(-50%); }
 #objections .objection .ground-body { padding-bottom: 1.2rem; }
 .terms-line { display: block; margin-top: 0.9rem; }
+details.sec-drop + details.delays-drop { margin-top: 0 !important; border-top: 0 !important; }
