@@ -1377,4 +1377,5 @@ details.sec-drop + details.delays-drop { margin-top: 0 !important; border-top: 0
 .step-note .theory-name { display: block; margin-bottom: 0.4rem; } .step-note { margin-top: 1.6rem; }
 #response .ground-body p.step-note { font-family: Newsreader, Georgia, "Times New Roman", serif !important; font-size: 1.1875rem !important; line-height: 1.7 !important; color: var(--text) !important; }
 #response .fig-label + p.step-note { margin-top: 3rem !important; }
-.inline-icon { display: inline-flex; width: 1.3em; height: 1.3em; align-items: center; justify-content: center; border: 1px solid var(--rule); border-radius: 50%; vertical-align: -0.22em; margin: 0 0.15em; } .inline-icon svg { width: 0.85em; height: 0.85em; }
+.inline-icon { display: inline-flex; width: 1.3em; height: 1.3em; align-items: center; justify-content: center; border: 1px solid var(--rule); border-radius: 50%; vertical-align: -0.22em; margin: 0 0.15em; } .inline-icon svg { width: 0.9em; height: 0.9em; }
+.inline-icon { color: var(--text); }
